@@ -1,5 +1,7 @@
 package controller;
-
+/*
+ * This class is the event handler for the settings button
+ */
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;

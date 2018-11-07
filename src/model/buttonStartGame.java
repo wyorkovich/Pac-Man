@@ -12,10 +12,10 @@ import javafx.scene.paint.Color;
 
 public class buttonStartGame implements GameButton{
 
-private Button button;
-	
+	private Button button;
 	private EventHandler start = (EventHandler) new ActionHandlerStart();
 
+	//Creates the buttons attributes
 	public buttonStartGame() {
 		button = new Button("Start");
 		button.setPrefSize(100, 20);

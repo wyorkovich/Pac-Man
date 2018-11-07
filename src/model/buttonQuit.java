@@ -15,6 +15,7 @@ public class buttonQuit implements GameButton{
 	private Button button;
 	private EventHandler quit = (EventHandler) new ActionHandlerQuit();
 	
+	//Creates the buttons attributes
 	@SuppressWarnings("unchecked")
 	public buttonQuit() {
 		button = new Button("Quit");

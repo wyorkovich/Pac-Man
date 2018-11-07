@@ -1,5 +1,7 @@
 package view;
 
+import model.buttonLeaderBoard;
+
 //import javax.swing.JButton;
 //import javax.swing.JFrame;
 //import javax.swing.JLabel;
@@ -39,10 +41,13 @@ public class View extends Application {
 	private static int SCENE_WIDTH = 300;
 	private static int SCENE_HEIGHT = 400;
 	
+	//Defines the buttons that will be in the main menu
 	public buttonStartGame start = new buttonStartGame();
 	public buttonSettings settings = new buttonSettings();
 	public buttonQuit quit = new buttonQuit();
+	public buttonLeaderBoard leader = new buttonLeaderBoard();
 
+	//The start method sets up the scene and then launches it
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
@@ -68,12 +73,13 @@ public class View extends Application {
 		launch(args);
 	}
 	
-	private VBox addCenterBox() {  //test comment
+	//This method creates a center box with buttons to add into the main menu
+	private VBox addCenterBox() {  
 		VBox box = new VBox();
 		box.setSpacing(25);
 		ObservableList<Node> list = box.getChildren();
 
-		list.addAll(start.createButton(), settings.createButton(), quit.createButton());
+		list.addAll(start.createButton(), leader.createButton(), settings.createButton(), quit.createButton());
 		box.setAlignment(Pos.CENTER);
 		return box;
 	}

@@ -1,5 +1,7 @@
 package controller;
-
+/*
+ * This class is the event handler for the start button
+ */
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.event.EventHandler;

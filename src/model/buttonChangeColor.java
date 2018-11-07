@@ -8,6 +8,7 @@ public class buttonChangeColor implements GameButton {
 
 	Button button = new Button();
 	
+	//Creates the buttons attributes
 	public buttonChangeColor() {
 		button = new Button("Change Color Theme");
 		button.setPrefSize(100, 20);

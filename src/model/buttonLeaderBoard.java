@@ -11,6 +11,7 @@ public class buttonLeaderBoard implements GameButton{
 	Button button = new Button();
 	EventHandler leader = new ActionHandlerLeaderBoard();
 	
+	//Creates the buttons attributes
 	public buttonLeaderBoard() {
 		button = new Button("Leaderboard");
 		button.setPrefSize(100, 20);

@@ -21,7 +21,9 @@ public class GameScreen extends Application{
 	private static int sideLength = 220;
 	private static int topLength = 500;
 	private static Color test = Color.RED;
+
 	
+	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
 
@@ -29,7 +31,7 @@ public class GameScreen extends Application{
 		VBox centerBox = addCenterBox();
 		root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: BLACK");
-		
+
 		Rectangle borderLeft = new Rectangle(25, 25, 25, sideLength);
 		borderLeft.setFill(border);
 		borderLeft.setX(400);

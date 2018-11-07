@@ -4,7 +4,9 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 import view.Leaderboard;
-
+/*
+ * This class is the event handler for the leaderboard button
+ */
 public class ActionHandlerLeaderBoard implements EventHandler {
 
 	

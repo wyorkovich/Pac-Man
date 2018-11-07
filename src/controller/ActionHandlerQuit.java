@@ -1,5 +1,7 @@
 package controller;
-
+/*
+ * This class is the eventHandler for the quit button
+ */
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

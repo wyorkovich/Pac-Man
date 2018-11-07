@@ -18,6 +18,7 @@ public class Leaderboard extends Application {
 		private static int SCENE_HEIGHT = 500;
 		private static Stage window = new Stage();
 		
+		//Initilizes and shows the scene
 		@Override
 		public void start(Stage screen) throws Exception {
 
@@ -38,6 +39,7 @@ public class Leaderboard extends Application {
 			window.close();
 		}
 		
+		//Sets up a centerbox to load into the screen
 		private VBox addCenterBox() {  //test comment
 			VBox box = new VBox();
 			box.setSpacing(25);
