@@ -362,6 +362,35 @@ public class gameBoard {
 		rightFVerticle.setY(545);
 		root.getChildren().add(rightFVerticle);
 		
+		
+		//top left hall
+		Rectangle hallLeft = new Rectangle(25,25,85, 25);
+		hallLeft.setFill(border);
+		hallLeft.setX(400);
+		hallLeft.setY(285);
+		root.getChildren().add(hallLeft);
+	
+		//bottom left hall
+		Rectangle hallLeftB = new Rectangle(25,25,85, 25);
+		hallLeftB.setFill(border);
+		hallLeftB.setX(400);
+		hallLeftB.setY(370);
+		root.getChildren().add(hallLeftB);		
+	
+		//top right hall
+		Rectangle hallRight = new Rectangle(25,25,85, 25);
+		hallRight.setFill(border);
+		hallRight.setX(840);
+		hallRight.setY(285);
+		root.getChildren().add(hallRight);
+	
+		//bottom right hall
+		Rectangle hall2Right = new Rectangle(25,25,85, 25);
+		hall2Right.setFill(border);
+		hall2Right.setX(840);
+		hall2Right.setY(370);
+		root.getChildren().add(hall2Right);			
+		
 		return root;
 	}//end of addBox
 }//end of class
