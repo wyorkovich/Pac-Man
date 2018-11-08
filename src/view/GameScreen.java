@@ -183,14 +183,14 @@ public class GameScreen extends Application{
 		wall11.setY(220);
 		root.getChildren().add(wall11);
 				
-		//verticle part of top left T
+		//verticle part of top righ T
 		Rectangle rightMiddle = new Rectangle(25,25,25,155);
 		rightMiddle.setFill(border);
 		rightMiddle.setX(775);
 		rightMiddle.setY(155);
 		root.getChildren().add(rightMiddle);
 				
-		//horizontal part of top left T
+		//horizontal part of top right T
 		Rectangle wall12 = new Rectangle(25,25,75, 25);
 		wall12.setFill(border);
 		wall12.setX(705);
@@ -204,11 +204,173 @@ public class GameScreen extends Application{
 		rightSide.setY(220);
 		root.getChildren().add(rightSide);
 		
-		Rectangle wall13 = new Rectangle(25,25,175,25);
+		//horizontal part of middle T
+		Rectangle wall13 = new Rectangle(25,25,175,40);
 		wall13.setFill(border);
 		wall13.setX(575);
 		wall13.setY(155);
 		root.getChildren().add(wall13);
+		
+		//Verticle part of middle T
+		Rectangle wall14 = new Rectangle(25,25,25,90);
+		wall14.setFill(border);
+		wall14.setX(650);
+		wall14.setY(155);
+		root.getChildren().add(wall14);
+		
+		//verticle wall that goes in the middle left 
+		Rectangle wall15 = new Rectangle(25,25,25,85);
+		wall15.setFill(border);
+		wall15.setX(525);
+		wall15.setY(370);
+		root.getChildren().add(wall15);
+		
+		//verticle wall that goes in the middle right
+		Rectangle wall16 = new Rectangle(25,25,25,85);
+		wall16.setFill(border);
+		wall16.setX(775);
+		wall16.setY(370);
+		root.getChildren().add(wall16);
+		
+		Rectangle gBoxTop = new Rectangle(25,25,175,25);
+		gBoxTop.setFill(border);
+		gBoxTop.setX(575);
+		gBoxTop.setY(285);
+		root.getChildren().add(gBoxTop);
+		
+		//Bottom of ghost box
+		Rectangle gBoxBottom = new Rectangle(25,25,175,25);
+		gBoxBottom.setFill(border);
+		gBoxBottom.setX(575);
+		gBoxBottom.setY(370);
+		root.getChildren().add(gBoxBottom);
+
+		//Left of ghost box
+		Rectangle gBoxLeft = new Rectangle(25,25, 25,85);
+		gBoxLeft.setFill(border);
+		gBoxLeft.setX(575);
+		gBoxLeft.setY(285);
+		root.getChildren().add(gBoxLeft);
+		
+		//Right of ghost box
+		Rectangle gBoxRight = new Rectangle(25,25, 25,85);
+		gBoxRight.setFill(border);
+		gBoxRight.setX(725);
+		gBoxRight.setY(285);
+		root.getChildren().add(gBoxRight);
+		
+		//horizontal part of middle lower T
+		Rectangle wall17 = new Rectangle(25,25,175,25);
+		wall17.setFill(border);
+		wall17.setX(575);
+		wall17.setY(430);
+		root.getChildren().add(wall17);		
+		
+		//verticle part of middle lower T
+		Rectangle wall18 = new Rectangle(25,25,25,90);
+		wall18.setFill(border);
+		wall18.setX(650);
+		wall18.setY(430);
+		root.getChildren().add(wall18);	
+		
+		//Horizontal wall the goes to the right of the middle lower T
+		Rectangle wall19 = new Rectangle(25,25,100,40);
+		wall19.setFill(border);
+		wall19.setX(700);
+		wall19.setY(480);
+		root.getChildren().add(wall19);
+
+		//Horizontal wall the goes to the left of the middle lower T
+		Rectangle wall20 = new Rectangle(25,25,100,40);
+		wall20.setFill(border);
+		wall20.setX(525);
+		wall20.setY(480);
+		root.getChildren().add(wall20);		
+		
+		//Left L horizontal
+		Rectangle leftL = new Rectangle(25,25,50,25);
+		leftL.setFill(border);
+		leftL.setX(450);
+		leftL.setY(480);
+		root.getChildren().add(leftL);
+
+		//Left L verticle
+		Rectangle leftLVerticle = new Rectangle(25,25,25,90);
+		leftLVerticle.setFill(border);
+		leftLVerticle.setX(475);
+		leftLVerticle.setY(480);
+		root.getChildren().add(leftLVerticle);
+
+		//right L horizontal
+		Rectangle rightL = new Rectangle(25,25,25,25);
+		rightL.setFill(border);
+		rightL.setX(850);
+		rightL.setY(480);
+		root.getChildren().add(rightL);
+
+		//right L verticle
+		Rectangle rightLVerticle = new Rectangle(25,25,25,90);
+		rightLVerticle.setFill(border);
+		rightLVerticle.setX(825);
+		rightLVerticle.setY(480);
+		root.getChildren().add(rightLVerticle);		
+		
+		//middle lower T horizontal
+		Rectangle wall21 = new Rectangle(25,25,175,25);
+		wall21.setFill(border);
+		wall21.setX(575);
+		wall21.setY(545);
+		root.getChildren().add(wall21);		
+		
+		//middle lower T verticle
+		Rectangle wall22 = new Rectangle(25,25,25,80);
+		wall22.setFill(border);
+		wall22.setX(650);
+		wall22.setY(545);
+		root.getChildren().add(wall22);
+		
+		
+		//lower left knob
+		Rectangle leftKnob = new Rectangle(25,25,25,40);
+		leftKnob.setFill(border);
+		leftKnob.setX(425);
+		leftKnob.setY(530);
+		root.getChildren().add(leftKnob);
+		
+		//lower right knob
+		Rectangle rightKnob = new Rectangle(25,25,25,40);
+		rightKnob.setFill(border);
+		rightKnob.setX(875);
+		rightKnob.setY(530);
+		root.getChildren().add(rightKnob);
+		
+		//lower left F
+		Rectangle leftF = new Rectangle(25,25,170,30);
+		leftF.setFill(border);
+		leftF.setX(455);
+		leftF.setY(595);
+		root.getChildren().add(leftF);
+		
+		//lower left F verticle
+		Rectangle leftFVerticle = new Rectangle(25,25,25,55);
+		leftFVerticle.setFill(border);
+		leftFVerticle.setX(525);
+		leftFVerticle.setY(545);
+		root.getChildren().add(leftFVerticle);
+		
+		//lower right F
+		Rectangle rightF = new Rectangle(25,25,170,30);
+		rightF.setFill(border);
+		rightF.setX(700);
+		rightF.setY(595);
+		root.getChildren().add(rightF);		
+
+		//lower right F verticle
+		Rectangle rightFVerticle = new Rectangle(25,25,25,55);
+		rightFVerticle.setFill(border);
+		rightFVerticle.setX(775);
+		rightFVerticle.setY(545);
+		root.getChildren().add(rightFVerticle);
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		
