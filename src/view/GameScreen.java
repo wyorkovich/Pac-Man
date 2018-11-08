@@ -155,20 +155,60 @@ public class GameScreen extends Application{
 		rightCorner.setY(155);
 		root.getChildren().add(rightCorner);
 		
+		
 		Rectangle rightTopCorner = new Rectangle(25,25, 50, 55);
 		rightTopCorner.setFill(border);
 		rightTopCorner.setX(825);
 		rightTopCorner.setY(75);
 		root.getChildren().add(rightTopCorner);
 		
-		//obsticle in top left middle 
+		//obsticle in top right middle 
 		Rectangle rightMiddleCorner = new Rectangle(25,25, 95, 55);
 		rightMiddleCorner.setFill(border);
 		rightMiddleCorner.setX(705);
 		rightMiddleCorner.setY(75);
 		root.getChildren().add(rightMiddleCorner);
 		
+		//verticle part of top left T
+		Rectangle leftMiddle = new Rectangle(25,25,25,155);
+		leftMiddle.setFill(border);
+		leftMiddle.setX(525);
+		leftMiddle.setY(155);
+		root.getChildren().add(leftMiddle);
 		
+		//horizontal part of top left T
+		Rectangle wall11 = new Rectangle(25,25,95, 25);
+		wall11.setFill(border);
+		wall11.setX(525);
+		wall11.setY(220);
+		root.getChildren().add(wall11);
+				
+		//verticle part of top left T
+		Rectangle rightMiddle = new Rectangle(25,25,25,155);
+		rightMiddle.setFill(border);
+		rightMiddle.setX(775);
+		rightMiddle.setY(155);
+		root.getChildren().add(rightMiddle);
+				
+		//horizontal part of top left T
+		Rectangle wall12 = new Rectangle(25,25,75, 25);
+		wall12.setFill(border);
+		wall12.setX(705);
+		wall12.setY(220);
+		root.getChildren().add(wall12);
+		
+		//horizontal part of top left T
+		Rectangle rightSide = new Rectangle(25,25,95, 25);
+		rightSide.setFill(border);
+		rightSide.setX(525);
+		rightSide.setY(220);
+		root.getChildren().add(rightSide);
+		
+		Rectangle wall13 = new Rectangle(25,25,175,25);
+		wall13.setFill(border);
+		wall13.setX(575);
+		wall13.setY(155);
+		root.getChildren().add(wall13);
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		
