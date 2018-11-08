@@ -134,7 +134,42 @@ public class GameScreen extends Application{
 		wall10.setX(825);
 		wall10.setY(225);
 		root.getChildren().add(wall10);
-				
+
+		//obsticle in top left middle 
+		Rectangle leftMiddleCorner = new Rectangle(25,25, 95, 55);
+		leftMiddleCorner.setFill(border);
+		leftMiddleCorner.setX(525);
+		leftMiddleCorner.setY(75);
+		root.getChildren().add(leftMiddleCorner);
+		
+		//wall the is in top middle of screen
+		Rectangle topWall = new Rectangle(25,25,25,100);
+		topWall.setFill(border);
+		topWall.setX(650);
+		topWall.setY(30);
+		root.getChildren().add(topWall);
+		
+		Rectangle rightCorner = new Rectangle(25,25, 50, 40);
+		rightCorner.setFill(border);
+		rightCorner.setX(825);
+		rightCorner.setY(155);
+		root.getChildren().add(rightCorner);
+		
+		Rectangle rightTopCorner = new Rectangle(25,25, 50, 55);
+		rightTopCorner.setFill(border);
+		rightTopCorner.setX(825);
+		rightTopCorner.setY(75);
+		root.getChildren().add(rightTopCorner);
+		
+		//obsticle in top left middle 
+		Rectangle rightMiddleCorner = new Rectangle(25,25, 95, 55);
+		rightMiddleCorner.setFill(border);
+		rightMiddleCorner.setX(705);
+		rightMiddleCorner.setY(75);
+		root.getChildren().add(rightMiddleCorner);
+		
+		
+		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		
 		window.setTitle(TITLE);
