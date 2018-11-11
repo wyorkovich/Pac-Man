@@ -392,7 +392,7 @@ public class gameBoard {
 		hall2Right.setY(370);
 		root.getChildren().add(hall2Right);			
 		
-		root.getChildren().add(pacman.createSprite());
+		//root.getChildren().add(pacman.createSprite());
 		
 		return root;
 	}//end of addBox

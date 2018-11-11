@@ -34,10 +34,31 @@ public class GameScreen extends Application{
 		VBox centerBox = addCenterBox();
 		root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: BLACK");
-
+		
 		root.getChildren().add(board.addBoard());
+		root.getChildren().add(pacman.createSprite());
+		
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
+		
+		scene.setOnKeyPressed(e -> {
+			
+			 switch (e.getCode()) {
+			    case DOWN:
+			        pacman.createSprite().setCenterY(pacman.createSprite().getCenterY() + 5);
+			        break;
+			    case UP:
+			    	pacman.createSprite().setCenterY(pacman.createSprite().getCenterY() - 5);
+			        break;
+			    case LEFT:
+			    	pacman.createSprite().setCenterX(pacman.createSprite().getCenterX() - 5);
+			        break;
+			    case RIGHT:
+			    	pacman.createSprite().setCenterX(pacman.createSprite().getCenterX() + 5);
+			        break;
+			    }
+			
+		});
 		
 		window.setTitle(TITLE);
 		window.setScene(scene);
