@@ -3,6 +3,7 @@ package model;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class gameBoard {
@@ -10,7 +11,7 @@ public class gameBoard {
 	private static Color border = Color.MIDNIGHTBLUE;
 	private static int sideLength = 220;
 	private static int topLength = 500;
-
+	private player pacman = new player();
 	
 	public gameBoard() {
 		
@@ -390,6 +391,8 @@ public class gameBoard {
 		hall2Right.setX(840);
 		hall2Right.setY(370);
 		root.getChildren().add(hall2Right);			
+		
+		root.getChildren().add(pacman.createSprite());
 		
 		return root;
 	}//end of addBox
