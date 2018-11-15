@@ -10,7 +10,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import model.gameBoard;
 import model.player;
@@ -21,10 +20,6 @@ public class GameScreen extends Application{
 	private static int SCENE_WIDTH = 300;
 	private static int SCENE_HEIGHT = 400;
 	private static Stage window = new Stage();
-	private static Color border = Color.MIDNIGHTBLUE;
-	private static int sideLength = 220;
-	private static int topLength = 500;
-	private static Color test = Color.RED;
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
 	//The Start method sets up the scene and adds in the game board
