@@ -4,12 +4,18 @@ import controller.ActionHandlerPacman;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import model.gameBoard;
 import model.player;
@@ -22,18 +28,29 @@ public class GameScreen extends Application{
 	private static Stage window = new Stage();
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
+
 	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
-
-		BorderPane root = new BorderPane();
-		VBox centerBox = addCenterBox();
-		root.setCenter(centerBox);
-		centerBox.setStyle("-fx-background-color: BLACK");
 		
+		//BorderPane root = new BorderPane();
+		Group root = new Group();
+		
+		VBox centerBox = addCenterBox();
+		//root.setCenter(centerBox);
+		centerBox.setStyle("-fx-background-color: BLACK");
+		//root.setBottom(label);
+
 		root.getChildren().add(board.addBoard());
 		root.getChildren().add(pacman.createSprite());
+		root.getChildren().add(board.addBox());
+		Shape intersection = Shape.intersect(pacman.createSprite(), board.addBox());
 		
+		if (intersection.getBoundsInParent().getWidth() > 0) {
+			pacman.stopMove();
+		} else {
+			
+        }
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		scene.setOnKeyPressed(e -> {
@@ -47,6 +64,11 @@ public class GameScreen extends Application{
 		
 	}
 
+	
+	private void checkCollision() {
+		
+	}
+	
 	public void close() {
 		window.close();
 	}

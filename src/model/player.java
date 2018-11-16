@@ -11,10 +11,12 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 
 public class player implements gameSprite{
 
@@ -36,6 +38,7 @@ public class player implements gameSprite{
 		return pacman;
 	}
 
+	@SuppressWarnings("incomplete-switch")
 	public void move(KeyEvent e) {
 		
 		 switch (e.getCode()) {
@@ -55,5 +58,13 @@ public class player implements gameSprite{
 		
 	}
 	
+	public void stopMove() {
+		pacman.setTranslateX(50);
+	}
+	
+	public void checkCollision(Shape block) {
+		boolean collisionDetected = false;
+		
+	}
 	
 }//end of class

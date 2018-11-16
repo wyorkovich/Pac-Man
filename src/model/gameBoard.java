@@ -5,6 +5,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 
 public class gameBoard {
 
@@ -17,6 +18,44 @@ public class gameBoard {
 		
 		
 		
+	}
+	
+	public Shape addBox() {
+		
+		Shape box;
+		
+		Rectangle gBoxTop = new Rectangle(25,25,175,25);
+		gBoxTop.setFill(border);
+		gBoxTop.setX(575);
+		gBoxTop.setY(285);
+		
+		//Bottom of ghost box
+		Rectangle gBoxBottom = new Rectangle(25,25,175,25);
+		gBoxBottom.setFill(border);
+		gBoxBottom.setX(575);
+		gBoxBottom.setY(370);
+		
+		box = Shape.union(gBoxTop, gBoxBottom);
+		
+		//Left of ghost box
+		Rectangle gBoxLeft = new Rectangle(25,25, 25,85);
+		gBoxLeft.setFill(border);
+		gBoxLeft.setX(575);
+		gBoxLeft.setY(285);
+		
+		box = Shape.union(box, gBoxLeft);
+		
+		//Right of ghost box
+		Rectangle gBoxRight = new Rectangle(25,25, 25,85);
+		gBoxRight.setFill(border);
+		gBoxRight.setX(725);
+		gBoxRight.setY(285);
+		
+		box = Shape.union(box,  gBoxRight);
+		
+		box.setFill(border);
+		
+		return box;
 	}
 	
 	public BorderPane addBoard() {
@@ -222,7 +261,7 @@ public class gameBoard {
 		wall16.setX(775);
 		wall16.setY(370);
 		root.getChildren().add(wall16);
-		
+		/*
 		Rectangle gBoxTop = new Rectangle(25,25,175,25);
 		gBoxTop.setFill(border);
 		gBoxTop.setX(575);
@@ -249,7 +288,7 @@ public class gameBoard {
 		gBoxRight.setX(725);
 		gBoxRight.setY(285);
 		root.getChildren().add(gBoxRight);
-		
+		*/
 		//horizontal part of middle lower T
 		Rectangle wall17 = new Rectangle(25,25,175,25);
 		wall17.setFill(border);
