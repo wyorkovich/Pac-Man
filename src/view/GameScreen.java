@@ -1,7 +1,9 @@
 package view;
+import controller.ActionHandlerPacman;
 //This is the window where the game will be played
 import javafx.application.Application;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -25,7 +27,6 @@ public class GameScreen extends Application{
 	private static Color test = Color.RED;
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
-	
 	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
@@ -40,24 +41,8 @@ public class GameScreen extends Application{
 		
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
-		
 		scene.setOnKeyPressed(e -> {
-			
-			 switch (e.getCode()) {
-			    case DOWN:
-			        pacman.createSprite().setCenterY(pacman.createSprite().getCenterY() + 5);
-			        break;
-			    case UP:
-			    	pacman.createSprite().setCenterY(pacman.createSprite().getCenterY() - 5);
-			        break;
-			    case LEFT:
-			    	pacman.createSprite().setCenterX(pacman.createSprite().getCenterX() - 5);
-			        break;
-			    case RIGHT:
-			    	pacman.createSprite().setCenterX(pacman.createSprite().getCenterX() + 5);
-			        break;
-			    }
-			
+			pacman.move(e);
 		});
 		
 		window.setTitle(TITLE);
