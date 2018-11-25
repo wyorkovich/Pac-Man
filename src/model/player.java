@@ -38,6 +38,9 @@ public class player implements gameSprite{
 		return pacman;
 	}
 
+	
+	
+	
 	@SuppressWarnings("incomplete-switch")
 	public void move(KeyEvent e) {
 		
