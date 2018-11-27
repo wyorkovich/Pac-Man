@@ -7,7 +7,7 @@ public class pellet {
 
 	private int reward;
 	private int radius;
-	private Color color = Color.YELLOW;
+	private Color color = Color.WHITE;
 	private Circle pellet;
 	
 	public pellet() {
