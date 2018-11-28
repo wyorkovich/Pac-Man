@@ -15,6 +15,10 @@ public class gameBoard {
 	private player pacman = new player();
 	private int [][] movement;
 	
+	
+	
+	//Note to self try using a 2D grid with points to test collision.
+	
 	public gameBoard() {
 		movement = new int[][]{{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0},
