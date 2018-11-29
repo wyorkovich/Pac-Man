@@ -1,5 +1,5 @@
  package model;
-
+/*This is the class for the pellets */
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 

@@ -101,17 +101,17 @@ public class player implements gameSprite{
 		    	createSprite().setCenterX(createSprite().getCenterX() - 1);	
 	    	}
 	    	break;
-	    }
+	    }//end of switch statement
 		
-	}
+	}//end of move
 	
 	//Checks to see if pacman intersects with the side tunnels
 	public boolean checkSides() {
 		for(Node n: board.addSides().getChildren()) {
 			if(collide(n)) {
 				return true;
-			}
-		}
+			}//end of if
+		}//end of for
 		return false;
 	}//end of checkSides
 	
@@ -123,10 +123,10 @@ public class player implements gameSprite{
 					}
 			}	
 			return false;
-		}
+		}//end of checkCollisions
+		
 		//checks to see if any shape collides with pacman
-		public boolean collide(Node other) {
-			
+		public boolean collide(Node other) {			
 			return (createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
 		}//end of collide
 		
