@@ -59,10 +59,10 @@ public class player implements gameSprite{
 	    	}
 	    	
 	    	else if(!checkCollisions()) {
-				createSprite().setCenterY(createSprite().getCenterY() + 5);
+				createSprite().setCenterY(createSprite().getCenterY() + 2);
 			}//end of if
 			else {
-				createSprite().setCenterY(createSprite().getCenterY() -1);
+				createSprite().setCenterY(createSprite().getCenterY() -2);
 			}
 	        break;
 	    case UP:
@@ -71,10 +71,10 @@ public class player implements gameSprite{
 	    	}
 	    	
 	    	if(!checkCollisions()) {
-	    	createSprite().setCenterY(createSprite().getCenterY() - 5);
+	    	createSprite().setCenterY(createSprite().getCenterY() - 2);
 	    	}//end of if
 	    	else {
-	    		createSprite().setCenterY(createSprite().getCenterY() + 1);
+	    		createSprite().setCenterY(createSprite().getCenterY() + 2);
 	    	}
 	    	break;
 	    case LEFT:
@@ -83,10 +83,10 @@ public class player implements gameSprite{
 	    		createSprite().setCenterY(createSprite().getCenterY()-20);
 	    	}
 	    	if(!checkCollisions()) {
-	    		createSprite().setCenterX(createSprite().getCenterX() - 5);
+	    		createSprite().setCenterX(createSprite().getCenterX() - 2);
 	    	}
 	    	else {
-	    		createSprite().setCenterX(createSprite().getCenterX() + 1);	
+	    		createSprite().setCenterX(createSprite().getCenterX() + 2);	
 	    	}
 	    	break;
 	    case RIGHT:
@@ -95,10 +95,10 @@ public class player implements gameSprite{
 	    		createSprite().setCenterY(createSprite().getCenterY()-20);
 	    	}
 	    	if(!checkCollisions()) {
-	    	createSprite().setCenterX(createSprite().getCenterX() + 5);
+	    	createSprite().setCenterX(createSprite().getCenterX() + 2);
 	    	}//end of if
 	    	else {
-		    	createSprite().setCenterX(createSprite().getCenterX() - 1);	
+		    	createSprite().setCenterX(createSprite().getCenterX() - 2);	
 	    	}
 	    	break;
 	    }//end of switch statement
