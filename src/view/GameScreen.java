@@ -50,8 +50,12 @@ public class GameScreen extends Application{
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		scene.setOnKeyPressed(e -> {
-			checkCollisions();
+			if(!checkCollisions()) {
 			pacman.move(e);
+			}
+			else {
+				
+			}
 		});
 		
 		window.setTitle(TITLE);
@@ -62,13 +66,14 @@ public class GameScreen extends Application{
 	}
 	
 	//checks all rectangles in the board
-	public void checkCollisions() {
+	public boolean checkCollisions() {
 		for(Node n : board.addBoard().getChildren()) {
 				if(collide(n)) {
-				System.out.println("WORKS");
+				System.out.println("COLLIDE");
+				return true;
 				}
-			
 		}	
+		return false;
 	}
 	//checks to see if any shape collides with pacman
 	public boolean collide(Node other) {
