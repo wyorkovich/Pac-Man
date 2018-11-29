@@ -51,7 +51,12 @@ public class player implements gameSprite{
 
 		switch (e.getCode()) {
 	    case DOWN:
-			if(!checkCollisions()) {
+	    	
+	    	if(checkSides()) {
+	    		createSprite().setCenterY(createSprite().getCenterY()-20);
+	    	}
+	    	
+	    	else if(!checkCollisions()) {
 				createSprite().setCenterY(createSprite().getCenterY() + 5);
 			}//end of if
 			else {
@@ -59,6 +64,10 @@ public class player implements gameSprite{
 			}
 	        break;
 	    case UP:
+	    	if(checkSides()) {
+	    		createSprite().setCenterY(createSprite().getCenterY()-20);
+	    	}
+	    	
 	    	if(!checkCollisions()) {
 	    	createSprite().setCenterY(createSprite().getCenterY() - 5);
 	    	}//end of if
@@ -67,6 +76,10 @@ public class player implements gameSprite{
 	    	}
 	    	break;
 	    case LEFT:
+	    	
+	    	if(checkSides()) {
+	    		createSprite().setCenterY(createSprite().getCenterY()-20);
+	    	}
 	    	if(!checkCollisions()) {
 	    		createSprite().setCenterX(createSprite().getCenterX() - 5);
 	    	}
@@ -75,6 +88,10 @@ public class player implements gameSprite{
 	    	}
 	    	break;
 	    case RIGHT:
+	    	
+	    	if(checkSides()) {
+	    		createSprite().setCenterY(createSprite().getCenterY()-20);
+	    	}
 	    	if(!checkCollisions()) {
 	    	createSprite().setCenterX(createSprite().getCenterX() + 5);
 	    	}//end of if
@@ -86,15 +103,20 @@ public class player implements gameSprite{
 		
 	}
 	
-	public void stopMove() {
-		pacman.setTranslateX(50);
-	}
+	
+	public boolean checkSides() {
+		for(Node n: board.addSides().getChildren()) {
+			if(collide(n)) {
+				return true;
+			}
+		}
+		return false;
+	}//end of checkSides
 	
 	//checks all rectangles in the board
 		public boolean checkCollisions() {
 			for(Node n : board.addBoard().getChildren()) {
 					if(collide(n)) {
-					System.out.println("COLLIDE");
 					return true;
 					}
 			}	
@@ -102,9 +124,9 @@ public class player implements gameSprite{
 		}
 		//checks to see if any shape collides with pacman
 		public boolean collide(Node other) {
-		
+			
 			return (createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
-		}
+		}//end of collide
 		
 	
 	

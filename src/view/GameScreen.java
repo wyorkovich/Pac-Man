@@ -44,6 +44,7 @@ public class GameScreen extends Application{
 		//root.setBottom(label);
 
 		root.getChildren().add(board.addBoard());
+		root.getChildren().add(board.addSides());
 		root.getChildren().add(pacman.createSprite());
 		
 				

@@ -55,44 +55,6 @@ public class gameBoard {
 		return movement;
 	}
 	
-	public Group addBox() {
-		
-		Group box = new Group();
-		
-		Rectangle gBoxTop = new Rectangle(25,25,175,25);
-		gBoxTop.setFill(border);
-		gBoxTop.setX(575);
-		gBoxTop.setY(285);
-		
-		box.getChildren().add(gBoxTop);
-		
-		//Bottom of ghost box
-		Rectangle gBoxBottom = new Rectangle(25,25,175,25);
-		gBoxBottom.setFill(border);
-		gBoxBottom.setX(575);
-		gBoxBottom.setY(370);
-		
-		box.getChildren().add(gBoxBottom);
-		
-		//Left of ghost box
-		Rectangle gBoxLeft = new Rectangle(25,25, 25,85);
-		gBoxLeft.setFill(border);
-		gBoxLeft.setX(575);
-		gBoxLeft.setY(285);
-		
-		box.getChildren().add(gBoxLeft);
-		
-		//Right of ghost box
-		Rectangle gBoxRight = new Rectangle(25,25, 25,85);
-		gBoxRight.setFill(border);
-		gBoxRight.setX(725);
-		gBoxRight.setY(285);
-				
-		box.getChildren().add(gBoxRight);
-
-		return box;
-	}
-	
 	public Group addBoard() {
 	
 		Group root = new Group();
@@ -296,34 +258,7 @@ public class gameBoard {
 		wall16.setX(775);
 		wall16.setY(370);
 		root.getChildren().add(wall16);
-		/*
-		Rectangle gBoxTop = new Rectangle(25,25,175,25);
-		gBoxTop.setFill(border);
-		gBoxTop.setX(575);
-		gBoxTop.setY(285);
-		root.getChildren().add(gBoxTop);
 		
-		//Bottom of ghost box
-		Rectangle gBoxBottom = new Rectangle(25,25,175,25);
-		gBoxBottom.setFill(border);
-		gBoxBottom.setX(575);
-		gBoxBottom.setY(370);
-		root.getChildren().add(gBoxBottom);
-
-		//Left of ghost box
-		Rectangle gBoxLeft = new Rectangle(25,25, 25,85);
-		gBoxLeft.setFill(border);
-		gBoxLeft.setX(575);
-		gBoxLeft.setY(285);
-		root.getChildren().add(gBoxLeft);
-		
-		//Right of ghost box
-		Rectangle gBoxRight = new Rectangle(25,25, 25,85);
-		gBoxRight.setFill(border);
-		gBoxRight.setX(725);
-		gBoxRight.setY(285);
-		root.getChildren().add(gBoxRight);
-		*/
 		//horizontal part of middle lower T
 		Rectangle wall17 = new Rectangle(25,25,175,25);
 		wall17.setFill(border);
@@ -498,10 +433,27 @@ public class gameBoard {
 				
 		root.getChildren().add(gBoxRight);
 		
-		//root.getChildren().add(pacman.createSprite());
 		
 		return root;
 	}//end of addBox
 
+	
+	public Group addSides() {
+		Group sides = new Group();
+		
+		Rectangle leftSide = new Rectangle(50,60,60,60);
+		leftSide.setFill(Color.RED);
+		leftSide.setX(405);
+		leftSide.setY(310);
+		
+		Rectangle rightSide = new Rectangle(50,60,60,60);
+		rightSide.setFill(Color.RED);
+		rightSide.setX(875);
+		rightSide.setY(310);
+		
+		sides.getChildren().add(leftSide);
+		sides.getChildren().add(rightSide);
+		return sides;
+	}
 	
 }//end of class
