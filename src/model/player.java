@@ -36,7 +36,7 @@ public class player implements gameSprite{
 	}
 	
 	
-	
+	//Draws pacman
 	@Override
 	public Circle createSprite() {
 		// TODO Auto-generated method stub
@@ -49,6 +49,8 @@ public class player implements gameSprite{
 	@SuppressWarnings("incomplete-switch")
 	public void move(KeyEvent e) {
 
+		//checks which key was pressed and moves accodingly
+		//Before it moves it calls the checkCollisons method to see if there is any problems moving in that direction 
 		switch (e.getCode()) {
 	    case DOWN:
 	    	
@@ -103,7 +105,7 @@ public class player implements gameSprite{
 		
 	}
 	
-	
+	//Checks to see if pacman intersects with the side tunnels
 	public boolean checkSides() {
 		for(Node n: board.addSides().getChildren()) {
 			if(collide(n)) {

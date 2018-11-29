@@ -43,12 +43,13 @@ public class GameScreen extends Application{
 		centerBox.setStyle("-fx-background-color: BLACK");
 		//root.setBottom(label);
 
+		//adds all images and characters into the scene
 		root.getChildren().add(board.addBoard());
 		root.getChildren().add(board.addSides());
 		root.getChildren().add(pacman.createSprite());
 		
 				
-		
+		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		scene.setOnKeyPressed(e -> {
 			pacman.move(e);

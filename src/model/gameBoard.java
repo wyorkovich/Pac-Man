@@ -21,6 +21,7 @@ public class gameBoard {
 	//Note to self try using a 2D grid with points to test collision.
 	
 	public gameBoard() {
+		//The grid is unneeded, will remove in future versions
 		movement = new int[][]{
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0},
@@ -55,6 +56,7 @@ public class gameBoard {
 		return movement;
 	}
 	
+	//returns a group with every part of the maze
 	public Group addBoard() {
 	
 		Group root = new Group();
@@ -437,7 +439,7 @@ public class gameBoard {
 		return root;
 	}//end of addBox
 
-	
+	//adds the squares in the side tunnels
 	public Group addSides() {
 		Group sides = new Group();
 		
