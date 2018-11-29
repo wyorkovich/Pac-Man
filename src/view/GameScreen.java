@@ -11,6 +11,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -29,6 +30,8 @@ public class GameScreen extends Application{
 	private static Stage window = new Stage();
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
+	private static pauseWindow pause = new pauseWindow();
+
 	Group root = new Group();
 	
 	//The Start method sets up the scene and adds in the game board
@@ -52,8 +55,10 @@ public class GameScreen extends Application{
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		scene.setOnKeyPressed(e -> {
-			pacman.move(e);
-		});
+			if(e.getCode() == KeyCode.P) {
+				pause.createWindow();}
+			else
+				pacman.move(e);});
 		
 		window.setTitle(TITLE);
 		window.setScene(scene);
