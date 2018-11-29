@@ -54,11 +54,8 @@ public class player implements gameSprite{
 		switch (e.getCode()) {
 	    case DOWN:
 	    	
-	    	if(checkSides()) {
-	    		createSprite().setCenterY(createSprite().getCenterY()-20);
-	    	}
 	    	
-	    	else if(!checkCollisions()) {
+	    	if(!checkCollisions()) {
 				createSprite().setCenterY(createSprite().getCenterY() + 2);
 			}//end of if
 			else {
@@ -66,9 +63,7 @@ public class player implements gameSprite{
 			}
 	        break;
 	    case UP:
-	    	if(checkSides()) {
-	    		createSprite().setCenterY(createSprite().getCenterY()-20);
-	    	}
+	    	
 	    	
 	    	if(!checkCollisions()) {
 	    	createSprite().setCenterY(createSprite().getCenterY() - 2);
@@ -80,7 +75,7 @@ public class player implements gameSprite{
 	    case LEFT:
 	    	
 	    	if(checkSides()) {
-	    		createSprite().setCenterY(createSprite().getCenterY()-20);
+	    		createSprite().setCenterX(createSprite().getCenterX()+375);;
 	    	}
 	    	if(!checkCollisions()) {
 	    		createSprite().setCenterX(createSprite().getCenterX() - 2);
@@ -92,7 +87,7 @@ public class player implements gameSprite{
 	    case RIGHT:
 	    	
 	    	if(checkSides()) {
-	    		createSprite().setCenterY(createSprite().getCenterY()-20);
+	    		createSprite().setCenterX(createSprite().getCenterX()-375);;
 	    	}
 	    	if(!checkCollisions()) {
 	    	createSprite().setCenterX(createSprite().getCenterX() + 2);
