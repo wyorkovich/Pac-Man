@@ -6,14 +6,14 @@ import javafx.scene.shape.Circle;
 public class pellet {
 
 	private int reward;
-	private int radius;
+	private int radius = 3;
 	private Color color = Color.WHITE;
 	private Circle pellet;
 	
 	public pellet() {
 		reward = 100;
-		pellet.setCenterX(radius);
-		pellet.setCenterY(radius);
+		pellet.setCenterX(3);
+		pellet.setCenterY(3);
 		pellet.setFill(color);
 	}
 	

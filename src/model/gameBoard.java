@@ -1,5 +1,6 @@
 package model;
 
+import javafx.scene.Group;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -20,7 +21,8 @@ public class gameBoard {
 	//Note to self try using a 2D grid with points to test collision.
 	
 	public gameBoard() {
-		movement = new int[][]{{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		movement = new int[][]{
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 			{0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,0},
 			{0,1,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0},
 			{0,1,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,1,0},
@@ -49,14 +51,20 @@ public class gameBoard {
 			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
 	}
 	
-	public Shape addBox() {
+	public int[][] returnGrid() {
+		return movement;
+	}
+	
+	public Group addBox() {
 		
-		Shape box;
+		Group box = new Group();
 		
 		Rectangle gBoxTop = new Rectangle(25,25,175,25);
 		gBoxTop.setFill(border);
 		gBoxTop.setX(575);
 		gBoxTop.setY(285);
+		
+		box.getChildren().add(gBoxTop);
 		
 		//Bottom of ghost box
 		Rectangle gBoxBottom = new Rectangle(25,25,175,25);
@@ -64,7 +72,7 @@ public class gameBoard {
 		gBoxBottom.setX(575);
 		gBoxBottom.setY(370);
 		
-		box = Shape.union(gBoxTop, gBoxBottom);
+		box.getChildren().add(gBoxBottom);
 		
 		//Left of ghost box
 		Rectangle gBoxLeft = new Rectangle(25,25, 25,85);
@@ -72,24 +80,22 @@ public class gameBoard {
 		gBoxLeft.setX(575);
 		gBoxLeft.setY(285);
 		
-		box = Shape.union(box, gBoxLeft);
+		box.getChildren().add(gBoxLeft);
 		
 		//Right of ghost box
 		Rectangle gBoxRight = new Rectangle(25,25, 25,85);
 		gBoxRight.setFill(border);
 		gBoxRight.setX(725);
 		gBoxRight.setY(285);
-		
-		box = Shape.union(box,  gBoxRight);
-		
-		box.setFill(border);
-		
+				
+		box.getChildren().add(gBoxRight);
+
 		return box;
 	}
 	
-	public BorderPane addBoard() {
+	public Group addBoard() {
 	
-		BorderPane root = new BorderPane();
+		Group root = new Group();
 		
 		Rectangle borderLeft = new Rectangle(25, 25, 25, sideLength);
 		borderLeft.setFill(border);
@@ -459,6 +465,38 @@ public class gameBoard {
 		hall2Right.setX(840);
 		hall2Right.setY(370);
 		root.getChildren().add(hall2Right);			
+		
+		
+		Rectangle gBoxTop = new Rectangle(25,25,175,25);
+		gBoxTop.setFill(border);
+		gBoxTop.setX(575);
+		gBoxTop.setY(285);
+		
+		root.getChildren().add(gBoxTop);
+		
+		//Bottom of ghost box
+		Rectangle gBoxBottom = new Rectangle(25,25,175,25);
+		gBoxBottom.setFill(border);
+		gBoxBottom.setX(575);
+		gBoxBottom.setY(370);
+		
+		root.getChildren().add(gBoxBottom);
+		
+		//Left of ghost box
+		Rectangle gBoxLeft = new Rectangle(25,25, 25,85);
+		gBoxLeft.setFill(border);
+		gBoxLeft.setX(575);
+		gBoxLeft.setY(285);
+		
+		root.getChildren().add(gBoxLeft);
+		
+		//Right of ghost box
+		Rectangle gBoxRight = new Rectangle(25,25, 25,85);
+		gBoxRight.setFill(border);
+		gBoxRight.setX(725);
+		gBoxRight.setY(285);
+				
+		root.getChildren().add(gBoxRight);
 		
 		//root.getChildren().add(pacman.createSprite());
 		

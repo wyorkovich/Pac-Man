@@ -31,12 +31,15 @@ import javafx.scene.paint.Color;
 
 import java.awt.event.ActionListener;
 
+import Database.Database;
+
 
 public class View extends Application {
 
 	// private JTextField myTextField;
 	// private JButton button;
 
+	//private Database data = new Database();
 	private static String TITLE = "Pac-Man";
 	private static int SCENE_WIDTH = 300;
 	private static int SCENE_HEIGHT = 400;

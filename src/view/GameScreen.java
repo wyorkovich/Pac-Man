@@ -15,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import model.gameBoard;
@@ -28,13 +29,14 @@ public class GameScreen extends Application{
 	private static Stage window = new Stage();
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
-
+	Group root = new Group();
+	
 	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
 		
 		//BorderPane root = new BorderPane();
-		Group root = new Group();
+		
 		
 		VBox centerBox = addCenterBox();
 		//root.setCenter(centerBox);
@@ -43,17 +45,12 @@ public class GameScreen extends Application{
 
 		root.getChildren().add(board.addBoard());
 		root.getChildren().add(pacman.createSprite());
-		root.getChildren().add(board.addBox());
-		Shape intersection = Shape.intersect(pacman.createSprite(), board.addBox());
 		
-		if (intersection.getBoundsInParent().getWidth() > 0) {
-			pacman.stopMove();
-		} else {
-			
-        }
+				
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		scene.setOnKeyPressed(e -> {
+			checkCollisions();
 			pacman.move(e);
 		});
 		
@@ -63,11 +60,22 @@ public class GameScreen extends Application{
 		window.show();
 		
 	}
-
 	
-	private void checkCollision() {
-		
+	//checks all rectangles in the board
+	public void checkCollisions() {
+		for(Node n : board.addBoard().getChildren()) {
+				if(collide(n)) {
+				System.out.println("WORKS");
+				}
+			
+		}	
 	}
+	//checks to see if any shape collides with pacman
+	public boolean collide(Node other) {
+	
+		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
+	}
+	
 	
 	public void close() {
 		window.close();

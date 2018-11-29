@@ -23,6 +23,7 @@ public class player implements gameSprite{
 	private static final int      KEYBOARD_MOVEMENT_DELTA = 5;
 	private String imagePath = "file:/Pacman/ImgResources/Pac-ManRight.gif";
 	private Circle pacman = new Circle(10,10,10);
+	
 	public player() {
 
 		pacman.setFill(Color.YELLOW);
@@ -31,6 +32,8 @@ public class player implements gameSprite{
 		
 	
 	}
+	
+	
 	
 	@Override
 	public Circle createSprite() {
@@ -46,17 +49,21 @@ public class player implements gameSprite{
 		
 		 switch (e.getCode()) {
 	    case DOWN:
-	        createSprite().setCenterY(createSprite().getCenterY() + 5);
+	        
+	    	createSprite().setCenterY(createSprite().getCenterY() + 5);
 	        break;
 	    case UP:
+	    	
 	    	createSprite().setCenterY(createSprite().getCenterY() - 5);
 	        break;
 	    case LEFT:
+	    	
 	    	createSprite().setCenterX(createSprite().getCenterX() - 5);
 	        break;
 	    case RIGHT:
+	    	
 	    	createSprite().setCenterX(createSprite().getCenterX() + 5);
-	        break;
+	    	break;
 	    }
 		
 	}
@@ -65,9 +72,5 @@ public class player implements gameSprite{
 		pacman.setTranslateX(50);
 	}
 	
-	public void checkCollision(Shape block) {
-		boolean collisionDetected = false;
-		
-	}
 	
 }//end of class
