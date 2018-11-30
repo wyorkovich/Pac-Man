@@ -1,5 +1,9 @@
 package model;
 
-public interface GraphicsUpdater {
+import java.awt.Graphics;
 
+public interface GraphicsUpdater {
+	
+	public void update(Graphics g);
+	
 }
