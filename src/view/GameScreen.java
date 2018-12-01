@@ -20,6 +20,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import model.gameBoard;
+import model.pellet;
 import model.player;
 
 public class GameScreen extends Application{
@@ -31,7 +32,8 @@ public class GameScreen extends Application{
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
 	private static pauseWindow pause = new pauseWindow();
-
+	private static pellet food = new pellet();
+	
 	Group root = new Group();
 	
 	//The Start method sets up the scene and adds in the game board
@@ -50,7 +52,7 @@ public class GameScreen extends Application{
 		root.getChildren().add(board.addBoard());
 		root.getChildren().add(board.addSides());
 		root.getChildren().add(pacman.createSprite());
-		
+		root.getChildren().add(food.addPellets());
 				
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
