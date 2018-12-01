@@ -38,14 +38,15 @@ public class GameScreen extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Scene scene = new Scene(root);
-		Canvas canvas = new Canvas(SCENE_WIDTH, SCENE_HEIGHT);
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-		
-		root.getChildren().add(canvas);
-		primaryStage.setTitle("Pac-Man");
 		primaryStage.setScene(scene);
 		
-		gc.drawImage(gameboard, SCENE_WIDTH, SCENE_HEIGHT);
+		Canvas canvas = new Canvas(SCENE_WIDTH + 600, SCENE_HEIGHT + 600);
+		root.getChildren().add(canvas);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		
+		primaryStage.setTitle("Pac-Man");
+		
+		gc.drawImage(gameboard, SCENE_WIDTH, SCENE_HEIGHT, 0, 0);
 		
 		primaryStage.show();
 	}
