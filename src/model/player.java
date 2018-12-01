@@ -25,7 +25,7 @@ public class player implements gameSprite{
 	private String imagePath = "file:/Pacman/ImgResources/Pac-ManRight.gif";
 	private Circle pacman = new Circle(10,10,10);
 	private static gameBoard board = new gameBoard();
-	
+	private static pellet food = new pellet();
 	public player() {
 
 		pacman.setFill(Color.YELLOW);
@@ -54,7 +54,7 @@ public class player implements gameSprite{
 		switch (e.getCode()) {
 	    case DOWN:
 	    	
-	    	
+	    	checkFood();
 	    	if(!checkCollisions()) {
 				createSprite().setCenterY(createSprite().getCenterY() + 2);
 			}//end of if
@@ -64,7 +64,7 @@ public class player implements gameSprite{
 	        break;
 	    case UP:
 	    	
-	    	
+	    	checkFood();
 	    	if(!checkCollisions()) {
 	    	createSprite().setCenterY(createSprite().getCenterY() - 2);
 	    	}//end of if
@@ -73,7 +73,7 @@ public class player implements gameSprite{
 	    	}
 	    	break;
 	    case LEFT:
-	    	
+	    	checkFood();
 	    	if(checkSides()) {
 	    		createSprite().setCenterX(createSprite().getCenterX()+375);;
 	    	}
@@ -85,7 +85,7 @@ public class player implements gameSprite{
 	    	}
 	    	break;
 	    case RIGHT:
-	    	
+	    	checkFood();
 	    	if(checkSides()) {
 	    		createSprite().setCenterX(createSprite().getCenterX()-375);;
 	    	}
@@ -125,7 +125,15 @@ public class player implements gameSprite{
 			return (createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
 		}//end of collide
 		
-	
+	public boolean checkFood() {
+		for(Node n: food.addPellets().getChildren()) {
+			if(collide(n)) {
+				n.setTranslateX(2000);
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	
 }//end of class

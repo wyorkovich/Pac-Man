@@ -35,7 +35,7 @@ public class GameScreen extends Application{
 	private static pellet food = new pellet();
 	
 	Group root = new Group();
-	
+	Group pellets = food.addPellets();
 	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
@@ -51,16 +51,22 @@ public class GameScreen extends Application{
 		//adds all images and characters into the scene
 		root.getChildren().add(board.addBoard());
 		root.getChildren().add(board.addSides());
+		root.getChildren().add(pellets);
 		root.getChildren().add(pacman.createSprite());
-		root.getChildren().add(food.addPellets());
-				
+		
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		scene.setOnKeyPressed(e -> {
 			if(e.getCode() == KeyCode.P) {
-				pause.createWindow();}
-			else
-				pacman.move(e);});
+				pause.createWindow();
+			}//end of if
+			else {
+				pacman.move(e);
+				root.getChildren().remove(pellets);
+				pellets = eatFood();
+				root.getChildren().add(pellets);
+			}//end of else
+			});
 		
 		window.setTitle(TITLE);
 		window.setScene(scene);
@@ -68,6 +74,19 @@ public class GameScreen extends Application{
 		window.show();
 		
 	}
+	
+	public Group eatFood() {
+		for(Node n: pellets.getChildren()) {
+			if(collide(n)) {
+				n.setTranslateX(2000);
+				}
+		}
+		return pellets;
+	}
+	
+	public boolean collide(Node other) {			
+		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
+	}//end of collide
 	
 	public void close() {
 		window.close();

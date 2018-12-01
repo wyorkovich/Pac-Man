@@ -408,12 +408,12 @@ public class gameBoard {
 		Group sides = new Group();
 		
 		Rectangle leftSide = new Rectangle(50,60,60,60);
-		leftSide.setFill(Color.RED);
+		leftSide.setFill(Color.BLACK);
 		leftSide.setX(405);
 		leftSide.setY(310);
 		
 		Rectangle rightSide = new Rectangle(50,60,60,60);
-		rightSide.setFill(Color.RED);
+		rightSide.setFill(Color.BLACK);
 		rightSide.setX(875);
 		rightSide.setY(310);
 		
