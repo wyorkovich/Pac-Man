@@ -356,6 +356,58 @@ public class pellet {
 			count++;	
 		}	
 		
+		//bottom section of ghost box
+		startingX = 580;
+		startingY = 410;
+		for(int i =0; i< 9; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}	
+
+		//top section of ghost box
+		startingX = 580;
+		startingY = 265;
+		for(int i =0; i< 9; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}		
+
+		//left section of ghost box
+		startingX = 560;
+		startingY = 265;
+		for(int i =0; i< 10; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;	
+		}	
+
+		//right section of ghost box
+		startingX = 760;
+		startingY = 265;
+		for(int i =0; i< 10; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;	
+		}	
+		
 		return root;
 	}
 	
