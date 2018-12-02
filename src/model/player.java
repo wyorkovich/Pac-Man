@@ -26,12 +26,17 @@ public class player implements gameSprite{
 	private Circle pacman = new Circle(10,10,10);
 	private static gameBoard board = new gameBoard();
 	private static pellet food = new pellet();
+	private static double xPos;
+	private static double yPos;
+	private int moveSpeed = 4;
+	
 	public player() {
 
 		pacman.setFill(Color.YELLOW);
 		pacman.setTranslateX(650);
 		pacman.setTranslateY(523);
-		
+		xPos = createSprite().getCenterX();
+		yPos = createSprite().getCenterY();
 	
 	}
 	
@@ -43,57 +48,80 @@ public class player implements gameSprite{
 		return pacman;
 	}
 
+	//getX and getY store the pacmans current X and Y coords before collision
+	public double getX() {
+		return xPos;
+	}
 	
-	
+	public double getY() {
+		return yPos;
+	}
 	
 	@SuppressWarnings("incomplete-switch")
 	public void move(KeyEvent e) {
 
 		//checks which key was pressed and moves accodingly
 		//Before it moves it calls the checkCollisons method to see if there is any problems moving in that direction 
+		
 		switch (e.getCode()) {
 	    case DOWN:
 	    	
 	    	checkFood();
 	    	if(!checkCollisions()) {
-				createSprite().setCenterY(createSprite().getCenterY() + 2);
+	    		yPos = createSprite().getCenterY();
+				createSprite().setCenterY(createSprite().getCenterY() + moveSpeed);
 			}//end of if
 			else {
-				createSprite().setCenterY(createSprite().getCenterY() -2);
+				createSprite().setCenterX(getX());
+				createSprite().setCenterY(getY());
+				//createSprite().setCenterY(createSprite().getCenterY() -moveSpeed);
 			}
 	        break;
 	    case UP:
 	    	
 	    	checkFood();
 	    	if(!checkCollisions()) {
-	    	createSprite().setCenterY(createSprite().getCenterY() - 2);
+	    		yPos = createSprite().getCenterY();
+	    		createSprite().setCenterY(createSprite().getCenterY() - moveSpeed);
 	    	}//end of if
 	    	else {
-	    		createSprite().setCenterY(createSprite().getCenterY() + 2);
+	    		createSprite().setCenterX(getX());
+				createSprite().setCenterY(getY());
+	    		//createSprite().setCenterY(createSprite().getCenterY() + moveSpeed);
 	    	}
 	    	break;
 	    case LEFT:
 	    	checkFood();
 	    	if(checkSides()) {
+	    		
+	    		xPos += 375;
 	    		createSprite().setCenterX(createSprite().getCenterX()+375);;
 	    	}
 	    	if(!checkCollisions()) {
-	    		createSprite().setCenterX(createSprite().getCenterX() - 2);
+	    		
+	    		xPos = createSprite().getCenterX();
+	    		createSprite().setCenterX(createSprite().getCenterX() - moveSpeed);
 	    	}
 	    	else {
-	    		createSprite().setCenterX(createSprite().getCenterX() + 2);	
+	    		createSprite().setCenterX(getX());
+				createSprite().setCenterY(getY());
+	    		//createSprite().setCenterX(createSprite().getCenterX() + moveSpeed);	
 	    	}
 	    	break;
 	    case RIGHT:
 	    	checkFood();
 	    	if(checkSides()) {
+	    		xPos -= 375;
 	    		createSprite().setCenterX(createSprite().getCenterX()-375);;
 	    	}
 	    	if(!checkCollisions()) {
-	    	createSprite().setCenterX(createSprite().getCenterX() + 2);
+	    		xPos = createSprite().getCenterX();
+	    		createSprite().setCenterX(createSprite().getCenterX() + moveSpeed);
 	    	}//end of if
 	    	else {
-		    	createSprite().setCenterX(createSprite().getCenterX() - 2);	
+	    		createSprite().setCenterX(getX());
+				createSprite().setCenterY(getY());
+		    	//createSprite().setCenterX(createSprite().getCenterX() - moveSpeed);	
 	    	}
 	    	break;
 	    }//end of switch statement
