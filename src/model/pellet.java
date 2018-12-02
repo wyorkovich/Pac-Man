@@ -408,6 +408,240 @@ public class pellet {
 			count++;	
 		}	
 		
+		//left hallway on top
+		startingX = 435;
+		startingY = 60;
+		for(int i =0; i < 8; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;
+		}	
+
+		//right verticle hallway on top
+		startingX = 885;
+		startingY = 60;
+		for(int i =0; i < 8; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;
+		}			
+
+		//left horizontal hallway on top
+		startingX = 455;
+		startingY = 60;
+		for(int i =0; i < 10; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;
+		}		
+
+		//right horizontal hallway on top
+		startingX = 685;
+		startingY = 60;
+		for(int i =0; i < 10; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;
+		}
+
+		//middle left verticle hallway on top
+		startingX = 635;
+		startingY = 80;
+		for(int i =0; i < 3; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;
+		}
+
+		//middle right verticle hallway on top
+		startingX = 685;
+		startingY = 80;
+		for(int i =0; i < 3; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;
+		}
+	
+		//top horizontal hallway
+		startingX = 530;
+		startingY = 140;
+		for(int i =0; i< 14; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}	
+	
+		//top horizontal hallway left top small part
+		startingX = 450;
+		startingY = 140;
+		for(int i =0; i< 3; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}		
+	
+		//bottom horizontal hallway left bottom small part
+		startingX = 450;
+		startingY = 200;
+		for(int i =0; i< 3; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}	
+
+		//top horizontal hallway right top small part
+		startingX = 825;
+		startingY = 140;
+		for(int i =0; i< 3; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}		
+	
+		//top horizontal hallway right bottom small part
+		startingX = 825;
+		startingY = 200;
+		for(int i =0; i< 3; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}			
+
+		//left middle verticle hallway
+		startingX = 560;
+		startingY = 160;
+		for(int i =0; i < 2; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;
+		}	
+		
+		//right middle verticle hallway
+		startingX = 760;
+		startingY = 160;
+		for(int i =0; i < 2; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;
+		}	
+
+		//bottom horizontal hallway left bottom small part
+		startingX = 450;
+		startingY = 200;
+		for(int i =0; i< 3; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}
+
+		//left middle horizontal hallway
+		startingX = 560;
+		startingY = 205;
+		for(int i =0; i< 4; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}	
+		
+		//right middle horizontal hallway
+		startingX = 690;
+		startingY = 205;
+		for(int i =0; i< 4; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingX += space;
+			root.getChildren().add(p);
+			count++;	
+		}	
+
+		//bottom left verticle hallway on top
+		startingX = 635;
+		startingY = 205;
+		for(int i =0; i < 3; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;
+		}
+
+		//bottom right verticle hallway on top
+		startingX = 685;
+		startingY = 225;
+		for(int i =0; i < 2; i++) {
+			Circle p = new Circle(3,3,3);
+			p.setFill(color);
+			p.setTranslateX(startingX);
+			p.setTranslateY(startingY);
+			startingY += space;
+			root.getChildren().add(p);
+			count++;
+		}
+		
 		return root;
 	}
 	
