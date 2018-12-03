@@ -23,7 +23,7 @@ public class player implements gameSprite{
 
 	private static final int      KEYBOARD_MOVEMENT_DELTA = 5;
 	private String imagePath = "file:/Pacman/ImgResources/Pac-ManRight.gif";
-	private Circle pacman = new Circle(10,10,10);
+	private Circle pacman = new Circle(8,8,8);
 	private static gameBoard board = new gameBoard();
 	private static pellet food = new pellet();
 	private static double xPos;

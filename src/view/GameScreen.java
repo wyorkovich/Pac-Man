@@ -33,9 +33,10 @@ public class GameScreen extends Application{
 	private static player pacman = new player();
 	private static pauseWindow pause = new pauseWindow();
 	private static pellet food = new pellet();
-	
+	private static winWindow win = new winWindow();
 	Group root = new Group();
 	Group pellets = food.addPellets();
+	private static int pelletCount = 275;
 	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
@@ -76,9 +77,21 @@ public class GameScreen extends Application{
 	}
 	
 	public Group eatFood() {
+		System.out.println(pelletCount);
+		Stage stage = new Stage();
+		if(pelletCount == 0) {
+			try {
+				win.start(stage);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		for(Node n: pellets.getChildren()) {
 			if(collide(n)) {
 				n.setTranslateX(2000);
+				pelletCount--;
 				}
 		}
 		return pellets;
