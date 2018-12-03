@@ -19,8 +19,6 @@ public class gameBoard {
 		
 	}
 	
-
-	
 	//returns a group with every part of the maze
 	public Group addBoard() {
 	
