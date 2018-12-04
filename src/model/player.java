@@ -256,5 +256,11 @@ public class player implements gameSprite, Character{
 				System.out.println();
 			}
 			
-	}	
+	}
+	
+	public void dummy() {
+		int x = 5;
+		int y = x *2;
+	}
+	
 }//end of class
