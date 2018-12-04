@@ -29,12 +29,9 @@ public class player implements gameSprite, Character{
 	private static double xPos;
 	private static double yPos;
 	private int moveSpeed = 4;
-<<<<<<< HEAD
 
-=======
 	private double[][] positions = new double[3][2];
 	
->>>>>>> collision
 	public player() {
 
 		pacman.setFill(Color.YELLOW);
@@ -42,9 +39,7 @@ public class player implements gameSprite, Character{
 		pacman.setTranslateY(523);
 		xPos = createSprite().getCenterX();
 		yPos = createSprite().getCenterY();
-<<<<<<< HEAD
 
-=======
 		
 		//Populating the 2D array with the starting point
 		positions[0][0] = xPos;
@@ -53,7 +48,6 @@ public class player implements gameSprite, Character{
 		positions[1][1] = yPos;
 		positions[2][0] = xPos;
 		positions[2][1] = yPos;
->>>>>>> collision
 	}
 
 
@@ -105,59 +99,8 @@ public class player implements gameSprite, Character{
 				}
 				
 			}
-<<<<<<< HEAD
-			break;
-		case UP:
 
-			checkFood();
-			if(!checkCollisions()) {
-				yPos = createSprite().getCenterY();
-				createSprite().setCenterY(createSprite().getCenterY() - moveSpeed);
-			}//end of if
-			else {
-				createSprite().setCenterX(getX());
-				createSprite().setCenterY(getY());
-				//createSprite().setCenterY(createSprite().getCenterY() + moveSpeed);
-			}
 			break;
-		case LEFT:
-			checkFood();
-			if(checkSides()) {
-
-				xPos += 375;
-				createSprite().setCenterX(createSprite().getCenterX()+375);;
-			}
-			if(!checkCollisions()) {
-
-				xPos = createSprite().getCenterX();
-				createSprite().setCenterX(createSprite().getCenterX() - moveSpeed);
-			}
-			else {
-				createSprite().setCenterX(getX());
-				createSprite().setCenterY(getY());
-				//createSprite().setCenterX(createSprite().getCenterX() + moveSpeed);	
-			}
-			break;
-		case RIGHT:
-			checkFood();
-			if(checkSides()) {
-				xPos -= 375;
-				createSprite().setCenterX(createSprite().getCenterX()-375);;
-			}
-			if(!checkCollisions()) {
-				xPos = createSprite().getCenterX();
-				createSprite().setCenterX(createSprite().getCenterX() + moveSpeed);
-			}//end of if
-			else {
-				createSprite().setCenterX(getX());
-				createSprite().setCenterY(getY());
-				//createSprite().setCenterX(createSprite().getCenterX() - moveSpeed);	
-			}
-			break;
-		}//end of switch statement
-
-=======
-	        break;
 	    case UP:
 	    	
 	    	checkFood();
@@ -244,7 +187,6 @@ public class player implements gameSprite, Character{
 	    	break;
 	    }//end of switch statement
 		
->>>>>>> collision
 	}//end of move
 
 	//Checks to see if pacman intersects with the side tunnels
@@ -284,10 +226,8 @@ public class player implements gameSprite, Character{
 		}
 		return false;
 	}
-<<<<<<< HEAD
 
 
-=======
 	
 	public void updatePositions(double x, double y) {
 		
@@ -317,5 +257,4 @@ public class player implements gameSprite, Character{
 			}
 			
 	}	
->>>>>>> collision
 }//end of class
