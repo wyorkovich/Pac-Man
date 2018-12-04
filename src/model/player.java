@@ -29,6 +29,7 @@ public class player implements gameSprite{
 	private static double xPos;
 	private static double yPos;
 	private int moveSpeed = 4;
+	private double[][] positions = new double[3][2];
 	
 	public player() {
 
@@ -37,7 +38,14 @@ public class player implements gameSprite{
 		pacman.setTranslateY(523);
 		xPos = createSprite().getCenterX();
 		yPos = createSprite().getCenterY();
-	
+		
+		//Populating the 2D array with the starting point
+		positions[0][0] = xPos;
+		positions[0][1] = yPos;
+		positions[1][0] = xPos;
+		positions[1][1] = yPos;
+		positions[2][0] = xPos;
+		positions[2][1] = yPos;
 	}
 	
 	
@@ -70,11 +78,22 @@ public class player implements gameSprite{
 	    	if(!checkCollisions()) {
 	    		yPos = createSprite().getCenterY();
 				createSprite().setCenterY(createSprite().getCenterY() + moveSpeed);
+				updatePositions(createSprite().getCenterX(), createSprite().getCenterY());
 			}//end of if
 			else {
 				createSprite().setCenterX(getX());
-				createSprite().setCenterY(getY());
-				//createSprite().setCenterY(createSprite().getCenterY() -moveSpeed);
+				createSprite().setCenterY(getY());	
+				
+				if(checkCollisions()) {
+					for(int i = 0; i < 3; i++) {
+						createSprite().setCenterX(positions[i][0]);
+						createSprite().setCenterX(positions[i][1]);
+						if(!checkCollisions()) {
+							break;
+						}
+					}
+				}
+				
 			}
 	        break;
 	    case UP:
@@ -83,46 +102,83 @@ public class player implements gameSprite{
 	    	if(!checkCollisions()) {
 	    		yPos = createSprite().getCenterY();
 	    		createSprite().setCenterY(createSprite().getCenterY() - moveSpeed);
+	    		updatePositions(createSprite().getCenterX(), createSprite().getCenterY());
 	    	}//end of if
 	    	else {
 	    		createSprite().setCenterX(getX());
 				createSprite().setCenterY(getY());
+				if(checkCollisions()) {
+					for(int i = 0; i < 3; i++) {
+						createSprite().setCenterX(positions[i][0]);
+						createSprite().setCenterX(positions[i][1]);
+						if(!checkCollisions()) {
+							break;
+						}
+					}
+				}
+				
+			}
 	    		//createSprite().setCenterY(createSprite().getCenterY() + moveSpeed);
-	    	}
+	    	
 	    	break;
 	    case LEFT:
 	    	checkFood();
 	    	if(checkSides()) {
 	    		
 	    		xPos += 375;
-	    		createSprite().setCenterX(createSprite().getCenterX()+375);;
+	    		createSprite().setCenterX(createSprite().getCenterX()+375);
+	    		updatePositions(createSprite().getCenterX(), createSprite().getCenterY());
 	    	}
 	    	if(!checkCollisions()) {
 	    		
 	    		xPos = createSprite().getCenterX();
 	    		createSprite().setCenterX(createSprite().getCenterX() - moveSpeed);
+	    		updatePositions(createSprite().getCenterX(), createSprite().getCenterY());
 	    	}
 	    	else {
 	    		createSprite().setCenterX(getX());
 				createSprite().setCenterY(getY());
+				if(checkCollisions()) {
+					for(int i = 0; i < 3; i++) {
+						createSprite().setCenterX(positions[i][0]);
+						createSprite().setCenterX(positions[i][1]);
+						if(!checkCollisions()) {
+							break;
+						}
+					}
+				}
+				
+			}
 	    		//createSprite().setCenterX(createSprite().getCenterX() + moveSpeed);	
-	    	}
+	    	
 	    	break;
 	    case RIGHT:
 	    	checkFood();
 	    	if(checkSides()) {
 	    		xPos -= 375;
-	    		createSprite().setCenterX(createSprite().getCenterX()-375);;
+	    		createSprite().setCenterX(createSprite().getCenterX()-375);
+	    		updatePositions(createSprite().getCenterX(), createSprite().getCenterY());
 	    	}
 	    	if(!checkCollisions()) {
 	    		xPos = createSprite().getCenterX();
 	    		createSprite().setCenterX(createSprite().getCenterX() + moveSpeed);
+	    		updatePositions(createSprite().getCenterX(), createSprite().getCenterY());
 	    	}//end of if
 	    	else {
 	    		createSprite().setCenterX(getX());
 				createSprite().setCenterY(getY());
+				if(checkCollisions()) {
+					for(int i = 0; i < 3; i++) {
+						createSprite().setCenterX(positions[i][0]);
+						createSprite().setCenterX(positions[i][1]);
+						if(!checkCollisions()) {
+							break;
+						}
+					}
+				}
+				
+			}
 		    	//createSprite().setCenterX(createSprite().getCenterX() - moveSpeed);	
-	    	}
 	    	break;
 	    }//end of switch statement
 		
@@ -163,5 +219,33 @@ public class player implements gameSprite{
 		return false;
 	}
 	
+	public void updatePositions(double x, double y) {
+		
+			double temp1;
+			double temp2;
+			double temp3;
+			double temp4;
+
+			temp1 = positions[0][0];
+			temp2 = positions[0][1];
+			temp3 = positions[1][0];
+			temp4 = positions[1][1];
+		
+			positions[0][0] = x;
+			positions[0][1] = y;
+			positions[1][0] = temp1;
+			positions[1][1] = temp2;
+			positions[2][0] = temp3;
+			positions[2][1] = temp4;
+			
+			
+			for(int i = 0; i < 3; i++) {
+				for(int j =0; j< 2; j++) {
+					System.out.print( i + " " + j +" {" + positions[i][j] + "," + positions[i][j] + "}");
+				}
+				System.out.println();
+			}
+			
+	}
 	
 }//end of class

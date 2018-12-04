@@ -19,6 +19,7 @@ public class winWindow extends Application {
 	private static int SCENE_HEIGHT = 500;
 	private static Stage window = new Stage();
 	
+	
 	@Override
 	public void start(Stage arg0) throws Exception {
 		
@@ -39,7 +40,7 @@ public class winWindow extends Application {
 		VBox box = new VBox();
 		box.setSpacing(25);
 		ObservableList<Node> list = box.getChildren();
-		Text text = new Text("YOU WIN");
+		Text text = new Text ("YOU WIN");
 		
 		list.addAll(text);
 		box.setAlignment(Pos.CENTER);
