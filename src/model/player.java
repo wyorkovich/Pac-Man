@@ -87,7 +87,7 @@ public class player implements gameSprite{
 				if(checkCollisions()) {
 					for(int i = 0; i < 3; i++) {
 						createSprite().setCenterX(positions[i][0]);
-						createSprite().setCenterX(positions[i][1]);
+						createSprite().setCenterY(positions[i][1]);
 						if(!checkCollisions()) {
 							break;
 						}
@@ -110,7 +110,7 @@ public class player implements gameSprite{
 				if(checkCollisions()) {
 					for(int i = 0; i < 3; i++) {
 						createSprite().setCenterX(positions[i][0]);
-						createSprite().setCenterX(positions[i][1]);
+						createSprite().setCenterY(positions[i][1]);
 						if(!checkCollisions()) {
 							break;
 						}
@@ -141,7 +141,7 @@ public class player implements gameSprite{
 				if(checkCollisions()) {
 					for(int i = 0; i < 3; i++) {
 						createSprite().setCenterX(positions[i][0]);
-						createSprite().setCenterX(positions[i][1]);
+						createSprite().setCenterY(positions[i][1]);
 						if(!checkCollisions()) {
 							break;
 						}
@@ -170,7 +170,7 @@ public class player implements gameSprite{
 				if(checkCollisions()) {
 					for(int i = 0; i < 3; i++) {
 						createSprite().setCenterX(positions[i][0]);
-						createSprite().setCenterX(positions[i][1]);
+						createSprite().setCenterY(positions[i][1]);
 						if(!checkCollisions()) {
 							break;
 						}
@@ -246,6 +246,5 @@ public class player implements gameSprite{
 				System.out.println();
 			}
 			
-	}
-	
+	}	
 }//end of class
