@@ -258,9 +258,4 @@ public class player implements gameSprite, Character{
 			
 	}
 	
-	public void dummy() {
-		int x = 5;
-		int y = x *2;
-	}
-	
 }//end of class
