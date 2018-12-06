@@ -17,6 +17,10 @@ public class red_Blinky implements GhostInterface {
 		red.setFill(Color.RED);
 	}
 
+	public Rectangle createSprite() {
+		return red;
+	}
+	
 	@Override
 	public double getX() {
 		return xPos;

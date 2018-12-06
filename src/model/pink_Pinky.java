@@ -17,6 +17,10 @@ public class pink_Pinky implements GhostInterface {
 		pink.setFill(Color.PINK);
 		
 	}
+	
+	public Rectangle createSprite() {
+		return pink;
+	}
 
 	@Override
 	public double getX() {
