@@ -11,6 +11,7 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -19,6 +20,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import model.gameBoard;
+import model.pellet;
 import model.player;
 
 public class GameScreen extends Application{
@@ -29,8 +31,12 @@ public class GameScreen extends Application{
 	private static Stage window = new Stage();
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
+	private static pauseWindow pause = new pauseWindow();
+	private static pellet food = new pellet();
+	private static winWindow win = new winWindow();
 	Group root = new Group();
-	
+	Group pellets = food.addPellets();
+	private static int pelletCount = 275;
 	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
@@ -46,14 +52,22 @@ public class GameScreen extends Application{
 		//adds all images and characters into the scene
 		root.getChildren().add(board.addBoard());
 		root.getChildren().add(board.addSides());
+		root.getChildren().add(pellets);
 		root.getChildren().add(pacman.createSprite());
 		
-				
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		scene.setOnKeyPressed(e -> {
-			pacman.move(e);
-		});
+			if(e.getCode() == KeyCode.P) {
+				pause.createWindow();
+			}//end of if
+			else {
+				pacman.move(e);
+				root.getChildren().remove(pellets);
+				pellets = eatFood();
+				root.getChildren().add(pellets);
+			}//end of else
+			});
 		
 		window.setTitle(TITLE);
 		window.setScene(scene);
@@ -61,6 +75,31 @@ public class GameScreen extends Application{
 		window.show();
 		
 	}
+	
+	public Group eatFood() {
+		System.out.println(pelletCount);
+		Stage stage = new Stage();
+		if(pelletCount == 0) {
+			try {
+				win.start(stage);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		for(Node n: pellets.getChildren()) {
+			if(collide(n)) {
+				n.setTranslateX(2000);
+				pelletCount--;
+				}
+		}
+		return pellets;
+	}
+	
+	public boolean collide(Node other) {			
+		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
+	}//end of collide
 	
 	public void close() {
 		window.close();

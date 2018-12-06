@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package model;
 
 import javafx.scene.shape.Circle;
@@ -12,3 +13,8 @@ public class Ghost implements gameSprite {
 	}
 
 }
+=======
+package model;
+
+public interface Ghost extends Character {}
+>>>>>>> master
