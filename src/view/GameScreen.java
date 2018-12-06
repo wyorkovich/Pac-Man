@@ -1,4 +1,5 @@
 package view;
+
 import controller.ActionHandlerPacman;
 //This is the window where the game will be played
 import javafx.application.Application;
@@ -14,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -23,7 +25,7 @@ import model.gameBoard;
 import model.pellet;
 import model.player;
 
-public class GameScreen extends Application{
+public class GameScreen extends Application {
 
 	private static String TITLE = "Pac-Man";
 	private static int SCENE_WIDTH = 300;
@@ -37,7 +39,8 @@ public class GameScreen extends Application{
 	Group root = new Group();
 	Group pellets = food.addPellets();
 	private static int pelletCount = 275;
-	//The Start method sets up the scene and adds in the game board
+
+	// The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
 		
@@ -45,8 +48,10 @@ public class GameScreen extends Application{
 		
 		
 		VBox centerBox = addCenterBox();
+		HBox bottomBox = addBottomBox();
 		//root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: BLACK");
+//		bottomBox;
 		//root.setBottom(label);
 
 		//adds all images and characters into the scene
@@ -75,41 +80,56 @@ public class GameScreen extends Application{
 		window.show();
 		
 	}
-	
+
 	public Group eatFood() {
 		System.out.println(pelletCount);
 		Stage stage = new Stage();
-		if(pelletCount == 0) {
+		if (pelletCount == 0) {
 			try {
 				win.start(stage);
-			} catch (Exception e) {
+			}
+			catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
-		for(Node n: pellets.getChildren()) {
-			if(collide(n)) {
+
+		for (Node n : pellets.getChildren()) {
+			if (collide(n)) {
 				n.setTranslateX(2000);
 				pelletCount--;
-				}
+			}
 		}
 		return pellets;
 	}
-	
-	public boolean collide(Node other) {			
+
+	public boolean collide(Node other) {
 		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
-	}//end of collide
-	
+	}// end of collide
+
 	public void close() {
 		window.close();
 	}
-	
-	private VBox addCenterBox() {  //test comment
+
+	private VBox addCenterBox() { // test comment
 		VBox box = new VBox();
 
 		box.setAlignment(Pos.CENTER);
 		return box;
 	}
-	
+
+	private HBox addBottomBox() { // For scorekeeping
+		HBox box = new HBox();
+		box.setAlignment(Pos.BOTTOM_CENTER);
+		
+		ObservableList<Node> list = box.getChildren();
+		
+		Rectangle rect = new Rectangle(250, 400);
+		rect.setFill(Color.WHITE);
+		
+		list.add(rect);
+
+		return box;
+	}
+
 }
