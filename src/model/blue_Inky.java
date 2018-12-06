@@ -12,12 +12,12 @@ public class blue_Inky implements GhostInterface {
 
 	@Override
 	public double getX() {
-		return 0;
+		return xPos;
 	}
 
 	@Override
 	public double getY() {
-		return 0;
+		return yPos;
 	}
 
 	@Override

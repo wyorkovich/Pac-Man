@@ -3,18 +3,21 @@ package model;
 import javafx.scene.Node;
 
 public class orange_Clyde implements GhostInterface {
+	
+	private static double xPos;
+	private static double yPos;
 
 	public orange_Clyde() {
 	}
 
 	@Override
 	public double getX() {
-		return 0;
+		return xPos;
 	}
 
 	@Override
 	public double getY() {
-		return 0;
+		return yPos;
 	}
 
 	@Override
