@@ -56,6 +56,8 @@ public class red_Blinky implements Ghost {
 	@Override
 	public Circle createSprite() {
 		// TODO Auto-generated method stub
+		System.out.println("tetst00");
+		
 		return blinky;
 	}
 
