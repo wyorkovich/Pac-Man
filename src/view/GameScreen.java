@@ -51,11 +51,11 @@ public class GameScreen extends Application {
 		HBox bottomBox = addBottomBox();
 		//root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: BLACK");
-//		bottomBox;
 		//root.setBottom(label);
 
 		//adds all images and characters into the scene
 		root.getChildren().add(board.addBoard());
+		root.getChildren().add(bottomBox);
 		root.getChildren().add(board.addSides());
 		root.getChildren().add(pellets);
 		root.getChildren().add(pacman.createSprite());
