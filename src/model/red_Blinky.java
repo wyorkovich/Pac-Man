@@ -2,7 +2,7 @@ package model;
 
 import javafx.scene.Node;
 
-public class red_Blinky implements Ghost {
+public class red_Blinky implements GhostInterface {
 
 	public red_Blinky() {
 	}

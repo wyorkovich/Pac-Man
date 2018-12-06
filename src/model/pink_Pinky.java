@@ -2,7 +2,7 @@ package model;
 
 import javafx.scene.Node;
 
-public class pink_Pinky implements Ghost {
+public class pink_Pinky implements GhostInterface {
 
 	public pink_Pinky() {
 	}

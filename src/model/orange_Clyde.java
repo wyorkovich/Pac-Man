@@ -2,7 +2,7 @@ package model;
 
 import javafx.scene.Node;
 
-public class orange_Clyde implements Ghost {
+public class orange_Clyde implements GhostInterface {
 
 	public orange_Clyde() {
 	}

@@ -2,7 +2,7 @@ package model;
 
 import javafx.scene.Node;
 
-public class blue_Inky implements Ghost {
+public class blue_Inky implements GhostInterface {
 	
 	private static double xPos;
 	private static double yPos;
