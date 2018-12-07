@@ -72,7 +72,7 @@ public class player implements gameSprite, Character{
 	@SuppressWarnings("incomplete-switch")
 	public void move(KeyEvent e) {
 
-		//checks which key was pressed and moves accodingly
+		//checks which key was pressed and moves accordingly
 		//Before it moves it calls the checkCollisons method to see if there is any problems moving in that direction 
 
 		switch (e.getCode()) {

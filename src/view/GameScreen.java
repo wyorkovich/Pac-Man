@@ -24,6 +24,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import model.Score;
 import model.gameBoard;
 import model.pellet;
 import model.player;
@@ -39,6 +40,7 @@ public class GameScreen extends Application {
 	private static pauseWindow pause = new pauseWindow();
 	private static pellet food = new pellet();
 	private static winWindow win = new winWindow();
+	private static Score score = new Score();
 	Group root = new Group();
 	Group pellets = food.addPellets();
 	private static int pelletCount = 275;
@@ -131,16 +133,24 @@ public class GameScreen extends Application {
 		rect.setTranslateX(400);
 		rect.setTranslateY(675);
 		
-		Text t = new Text("Score:");
+		int score = 100 * (275 - food.getPelletCount());
+		
+		Text t = new Text("Score: " + score);
 		t.setTranslateY(675);
 		t.setTranslateX(-100);
 		t.setFont(Font.font("Impact", 20));
-		t.setFill(Color.WHITE);		
+		t.setFill(Color.WHITE);
+		
+		if(food.getPelletCount() < score){
+			score = 100 * (275 - food.getPelletCount());
+		}
 		
 		list.add(rect);
 		list.add(t);
 
 		return box;
 	}
+	
+	
 
 }
