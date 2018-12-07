@@ -20,6 +20,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import model.gameBoard;
 import model.pellet;
@@ -119,15 +122,23 @@ public class GameScreen extends Application {
 	}
 
 	private HBox addBottomBox() { // For scorekeeping
-		HBox box = new HBox();
-		box.setAlignment(Pos.BOTTOM_CENTER);
-		
+		HBox box = new HBox();		
 		ObservableList<Node> list = box.getChildren();
 		
-		Rectangle rect = new Rectangle(250, 400);
-		rect.setFill(Color.WHITE);
+		Rectangle rect = new Rectangle(525, 50);
+		rect.setStroke(Color.RED);
+		rect.setStrokeWidth(2);
+		rect.setTranslateX(400);
+		rect.setTranslateY(675);
+		
+		Text t = new Text("Score:");
+		t.setTranslateY(675);
+		t.setTranslateX(-100);
+		t.setFont(Font.font("Impact", 20));
+		t.setFill(Color.WHITE);		
 		
 		list.add(rect);
+		list.add(t);
 
 		return box;
 	}
