@@ -40,7 +40,7 @@ public class GameScreen extends Application {
 	private static pauseWindow pause = new pauseWindow();
 	private static pellet food = new pellet();
 	private static winWindow win = new winWindow();
-	private static Score score = new Score();
+//	private static Score score = new Score();
 	Group root = new Group();
 	Group pellets = food.addPellets();
 	private static int pelletCount = 275;
