@@ -1,4 +1,5 @@
 package view;
+
 import controller.ActionHandlerPacman;
 //This is the window where the game will be played
 import javafx.application.Application;
@@ -14,17 +15,22 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import model.Score;
 import model.gameBoard;
 import model.pellet;
 import model.player;
 import model.red_Blinky;
 
-public class GameScreen extends Application{
+public class GameScreen extends Application {
 
 	private static String TITLE = "Pac-Man";
 	private static int SCENE_WIDTH = 300;
@@ -35,11 +41,16 @@ public class GameScreen extends Application{
 	private static pauseWindow pause = new pauseWindow();
 	private static pellet food = new pellet();
 	private static winWindow win = new winWindow();
+
+//	private static Score score = new Score();
+
 	private static red_Blinky blinky = new red_Blinky();
+
 	Group root = new Group();
 	Group pellets = food.addPellets();
 	private static int pelletCount = 275;
-	//The Start method sets up the scene and adds in the game board
+
+	// The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
 		
@@ -47,12 +58,14 @@ public class GameScreen extends Application{
 		
 		
 		VBox centerBox = addCenterBox();
+		HBox bottomBox = addBottomBox();
 		//root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: BLACK");
 		//root.setBottom(label);
 
 		//adds all images and characters into the scene
 		root.getChildren().add(board.addBoard());
+		root.getChildren().add(bottomBox);
 		root.getChildren().add(board.addSides());
 		root.getChildren().add(pellets);
 		root.getChildren().add(pacman.createSprite());
@@ -78,41 +91,72 @@ public class GameScreen extends Application{
 		window.show();
 		
 	}
-	
+
 	public Group eatFood() {
 		System.out.println(pelletCount);
 		Stage stage = new Stage();
-		if(pelletCount == 0) {
+		if (pelletCount == 0) {
 			try {
 				win.start(stage);
-			} catch (Exception e) {
+			}
+			catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
-		for(Node n: pellets.getChildren()) {
-			if(collide(n)) {
+
+		for (Node n : pellets.getChildren()) {
+			if (collide(n)) {
 				n.setTranslateX(2000);
 				pelletCount--;
-				}
+			}
 		}
 		return pellets;
 	}
-	
-	public boolean collide(Node other) {			
+
+	public boolean collide(Node other) {
 		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
-	}//end of collide
-	
+	}// end of collide
+
 	public void close() {
 		window.close();
 	}
-	
-	private VBox addCenterBox() {  //test comment
+
+	private VBox addCenterBox() { // test comment
 		VBox box = new VBox();
 
 		box.setAlignment(Pos.CENTER);
 		return box;
 	}
+
+	private HBox addBottomBox() { // For scorekeeping
+		HBox box = new HBox();		
+		ObservableList<Node> list = box.getChildren();
+		
+		Rectangle rect = new Rectangle(525, 50);
+		rect.setStroke(Color.RED);
+		rect.setStrokeWidth(2);
+		rect.setTranslateX(400);
+		rect.setTranslateY(675);
+		
+		int score = 100 * (275 - food.getPelletCount());
+		
+		Text t = new Text("Score: " + score);
+		t.setTranslateY(675);
+		t.setTranslateX(-100);
+		t.setFont(Font.font("Impact", 20));
+		t.setFill(Color.WHITE);
+		
+		if(food.getPelletCount() < score){
+			score = 100 * (275 - food.getPelletCount());
+		}
+		
+		list.add(rect);
+		list.add(t);
+
+		return box;
+	}
 	
+	
+
 }
