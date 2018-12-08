@@ -66,6 +66,7 @@ public class GameScreen extends Application{
 				pause.createWindow();
 			}//end of if
 			else {
+				//Can i make this more MVC compliant?
 				pHandle.move(e,pacman);
 				root.getChildren().remove(pellets);
 				pellets = eatFood();
