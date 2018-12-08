@@ -1,6 +1,7 @@
 package model;
 
 import javafx.scene.Node;
+import javafx.scene.shape.Circle;
 
 public class blue_Inky implements Ghost {
 	
@@ -33,6 +34,12 @@ public class blue_Inky implements Ghost {
 	@Override
 	public boolean collide(Node other) {
 		return false;
+	}
+
+	@Override
+	public Circle createSprite() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

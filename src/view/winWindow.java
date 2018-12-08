@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 public class winWindow extends Application {
 
-	private static String TITLE = "Settings";
+	private static String TITLE = "YOU WIN";
 	private static int SCENE_WIDTH = 600;
 	private static int SCENE_HEIGHT = 500;
 	private static Stage window = new Stage();
@@ -40,8 +40,8 @@ public class winWindow extends Application {
 		VBox box = new VBox();
 		box.setSpacing(25);
 		ObservableList<Node> list = box.getChildren();
-		Text text = new Text ("YOU WIN");
-		
+		Text text = new Text (100 ,100, "YOU WIN");
+		text.setFill(Color.RED);
 		list.addAll(text);
 		box.setAlignment(Pos.CENTER);
 		return box;
