@@ -49,19 +49,16 @@ public class player implements gameSprite, Character{
 
 
 	//Draws pacman
-	@Override
 	public Circle createSprite() {
 		// TODO Auto-generated method stub
 		return pacman;
 	}
 
 	//getX and getY store the pacmans current X and Y coords before collision
-	@Override
 	public double getX() {
 		return xPos;
 	}
 
-	@Override
 	public double getY() {
 		return yPos;
 	}
@@ -231,5 +228,33 @@ public class player implements gameSprite, Character{
 		}
 		return false;
 	}
+
+	//These methods will most likely be deleted soon (I was testing some things)
+//	public int getXArraySize() {
+//		return xCoord.size();
+//	}
+//	
+//	public int getYArraySize() {
+//		return yCoord.size();
+//	}
+//	
+//	public double indexX(int i) {
+//		return xCoord.get(i);
+//	}
+//	
+//	public double indexY(int i) {
+//		return yCoord.get(i);
+//	}
+//	
+//	public int getSpeed() {
+//		return moveSpeed;
+//	}
+//	public void addX(double x) {
+//		xCoord.add(x);
+//	}
+//	
+//	public void addY(double y) {
+//		yCoord.add(y);
+//	}
 	
 }//end of class

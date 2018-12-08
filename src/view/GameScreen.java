@@ -36,6 +36,7 @@ public class GameScreen extends Application{
 	private static pellet food = new pellet();
 	private static winWindow win = new winWindow();
 	private static red_Blinky blinky = new red_Blinky();
+	private static ActionHandlerPacman pHandle = new ActionHandlerPacman();
 	Group root = new Group();
 	Group pellets = food.addPellets();
 	private static int pelletCount = 275;
@@ -65,7 +66,7 @@ public class GameScreen extends Application{
 				pause.createWindow();
 			}//end of if
 			else {
-				pacman.move(e);
+				pHandle.move(e,pacman);
 				root.getChildren().remove(pellets);
 				pellets = eatFood();
 				root.getChildren().add(pellets);
