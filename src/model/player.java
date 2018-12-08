@@ -26,6 +26,7 @@ public class player implements gameSprite, Character{
 	private Circle pacman = new Circle(8,8,8);
 	private static gameBoard board = new gameBoard();
 	private static pellet food = new pellet();
+	private Score score = new Score();
 	private static double xPos;
 	private static double yPos;
 	private int moveSpeed = 4;
@@ -77,7 +78,7 @@ public class player implements gameSprite, Character{
 
 		switch (e.getCode()) {
 		case DOWN:
-
+			score.update();
 			checkFood();
 			if(!checkCollisions()) {
 				yPos = createSprite().getCenterY();
@@ -102,7 +103,7 @@ public class player implements gameSprite, Character{
 
 			break;
 	    case UP:
-	    	
+	    	score.update();
 	    	checkFood();
 	    	if(!checkCollisions()) {
 	    		yPos = createSprite().getCenterY();
@@ -127,6 +128,7 @@ public class player implements gameSprite, Character{
 	    	
 	    	break;
 	    case LEFT:
+	    	score.update();
 	    	checkFood();
 	    	if(checkSides()) {
 	    		
@@ -158,6 +160,7 @@ public class player implements gameSprite, Character{
 	    	
 	    	break;
 	    case RIGHT:
+	    	score.update();
 	    	checkFood();
 	    	if(checkSides()) {
 	    		xPos -= 375;

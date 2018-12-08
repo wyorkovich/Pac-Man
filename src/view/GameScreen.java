@@ -141,9 +141,11 @@ public class GameScreen extends Application {
 		t.setFont(Font.font("Impact", 20));
 		t.setFill(Color.WHITE);
 		
-		if(food.getPelletCount() < score){
-			score = 100 * (275 - food.getPelletCount());
-		}
+//		if(food.getPelletCount() < score){
+//			score = 100 * (275 - food.getPelletCount());
+//		}
+		
+//		score = player.score;
 		
 		list.add(rect);
 		list.add(t);
