@@ -15,6 +15,11 @@ public class red_Blinky implements Ghost {
 	private ArrayList<Double> xCoord = new ArrayList<Double>();
 	private ArrayList<Double> yCoord = new ArrayList<Double>();
 	
+	// First have ghost move at slower speed with no collision at the space pacman is on to make something 
+	//playable. use animation timer.
+	//TODO Make ghost move in same direction until collision then decide where to go using if statements
+	// check to see if pacman is on same X or Y to make the corners, 
+	
 	
 	public red_Blinky() {
 		blinky.setFill(Color.RED);
@@ -55,9 +60,7 @@ public class red_Blinky implements Ghost {
 
 	@Override
 	public Circle createSprite() {
-		// TODO Auto-generated method stub
-		System.out.println("tetst00");
-		
+		// TODO Auto-generated method stub		
 		return blinky;
 	}
 
