@@ -1,6 +1,7 @@
 package model;
 
 import javafx.scene.Node;
+import javafx.scene.shape.Circle;
 
 public class orange_Clyde implements Ghost {
 
@@ -30,6 +31,12 @@ public class orange_Clyde implements Ghost {
 	@Override
 	public boolean collide(Node other) {
 		return false;
+	}
+
+	@Override
+	public Circle createSprite() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

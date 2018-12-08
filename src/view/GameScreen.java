@@ -28,6 +28,7 @@ import model.Score;
 import model.gameBoard;
 import model.pellet;
 import model.player;
+import model.red_Blinky;
 
 public class GameScreen extends Application {
 
@@ -40,7 +41,11 @@ public class GameScreen extends Application {
 	private static pauseWindow pause = new pauseWindow();
 	private static pellet food = new pellet();
 	private static winWindow win = new winWindow();
+
 //	private static Score score = new Score();
+
+	private static red_Blinky blinky = new red_Blinky();
+
 	Group root = new Group();
 	Group pellets = food.addPellets();
 	private static int pelletCount = 275;
@@ -64,6 +69,7 @@ public class GameScreen extends Application {
 		root.getChildren().add(board.addSides());
 		root.getChildren().add(pellets);
 		root.getChildren().add(pacman.createSprite());
+		root.getChildren().add(blinky.createSprite());
 		
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
