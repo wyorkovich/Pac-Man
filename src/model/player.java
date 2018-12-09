@@ -136,9 +136,11 @@ public class player implements gameSprite, Character{
 	    	if(!checkCollisions()) {
 	    		
 	    		xPos = createSprite().getCenterX();
-				xCoord.add(xPos);
+				
+	    		xCoord.add(xPos);
 				yCoord.add(yPos);
 	    		createSprite().setCenterX(createSprite().getCenterX() - moveSpeed);
+				
 	    	}
 	    	else {
 	    		createSprite().setCenterX(getX());
