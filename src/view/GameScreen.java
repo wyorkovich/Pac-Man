@@ -68,6 +68,7 @@ public class GameScreen extends Application{
 			else {
 				//Can i make this more MVC compliant?
 				pHandle.move(e,pacman);
+				blinky.updatePosition(pacman);
 				root.getChildren().remove(pellets);
 				pellets = eatFood();
 				root.getChildren().add(pellets);

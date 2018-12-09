@@ -42,4 +42,6 @@ public class blue_Inky implements Ghost {
 		return null;
 	}
 
+
+
 }
