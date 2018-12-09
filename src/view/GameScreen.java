@@ -139,7 +139,8 @@ public class GameScreen extends Application {
 		rect.setTranslateX(400);
 		rect.setTranslateY(675);
 		
-		int score = 100 * (275 - food.getPelletCount());
+//		int score = 100 * (275 - food.getPelletCount());
+//		int score = pacman.getScore();
 		
 		Text t = new Text("Score: " + score);
 		t.setTranslateY(675);
@@ -152,6 +153,7 @@ public class GameScreen extends Application {
 //		}
 		
 //		score = player.score;
+//		int score = pacman
 		
 		list.add(rect);
 		list.add(t);

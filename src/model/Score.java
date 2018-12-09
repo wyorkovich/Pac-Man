@@ -1,8 +1,10 @@
 package model;
 
 public class Score {
+	
+	private int score;
 
-	public void update() {
+	public int update(int pelletCount) {
 		/*
 		 * player object HAS A score.
 		 * player object HAS A pellet (object).
@@ -14,6 +16,14 @@ public class Score {
 		 * 
 		 * score value = 100 * (275 - pellet.getPelletCount()).
 		 */
+		score = 100 * (275 - pelletCount);
+		
+		return score;
+		
+	}
+	
+	public int getScore() {
+		return score;
 	}
 	
 }

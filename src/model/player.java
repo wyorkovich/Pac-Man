@@ -75,8 +75,8 @@ public class player implements gameSprite, Character{
 
 		switch (e.getCode()) {
 		case DOWN:
-			score.update();
 			checkFood();
+			score.update(food.getPelletCount());
 			if(!checkCollisions()) {
 				yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -102,8 +102,8 @@ public class player implements gameSprite, Character{
 
 			break;
 	    case UP:
-	    	score.update();
 	    	checkFood();
+	    	score.update(food.getPelletCount());
 	    	if(!checkCollisions()) {
 	    		yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -129,8 +129,8 @@ public class player implements gameSprite, Character{
 	    	
 	    	break;
 	    case LEFT:
-	    	score.update();
 	    	checkFood();
+	    	score.update(food.getPelletCount());
 	    	if(checkSides()) {
 	    		
 	    		xPos += 375;
@@ -163,8 +163,8 @@ public class player implements gameSprite, Character{
 	    	
 	    	break;
 	    case RIGHT:
-	    	score.update();
 	    	checkFood();
+	    	score.update(food.getPelletCount());
 	    	if(checkSides()) {
 	    		xPos -= 375;
 				xCoord.add(xPos);
@@ -233,6 +233,10 @@ public class player implements gameSprite, Character{
 			}
 		}
 		return false;
+	}
+	
+	public int getScore() {
+		return score.getScore();
 	}
 	
 }//end of class
