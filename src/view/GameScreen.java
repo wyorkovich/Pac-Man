@@ -41,6 +41,7 @@ public class GameScreen extends Application {
 	private static pauseWindow pause = new pauseWindow();
 	private static pellet food = new pellet();
 	private static winWindow win = new winWindow();
+	private static HBox bottomBox;
 
 //	private static Score score = new Score();
 
@@ -58,7 +59,7 @@ public class GameScreen extends Application {
 		
 		
 		VBox centerBox = addCenterBox();
-		HBox bottomBox = addBottomBox();
+		bottomBox = addBottomBox();
 		//root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: BLACK");
 		//root.setBottom(label);
@@ -161,6 +162,8 @@ public class GameScreen extends Application {
 		return box;
 	}
 	
-	
+	public void updateScore() {
+		pacman.getScore();
+	}
 
 }
