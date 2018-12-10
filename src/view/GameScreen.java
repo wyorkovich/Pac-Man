@@ -1,5 +1,4 @@
 package view;
-
 import controller.ActionHandlerPacman;
 //This is the window where the game will be played
 import javafx.application.Application;
@@ -22,15 +21,13 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import model.Score;
 import model.gameBoard;
 import model.pellet;
 import model.player;
 import model.red_Blinky;
 
-public class GameScreen extends Application {
+public class GameScreen extends Application{
 
 	private static String TITLE = "Pac-Man";
 	private static int SCENE_WIDTH = 300;
@@ -46,12 +43,11 @@ public class GameScreen extends Application {
 //	private static Score score = new Score();
 
 	private static red_Blinky blinky = new red_Blinky();
-
+	private static ActionHandlerPacman pHandle = new ActionHandlerPacman();
 	Group root = new Group();
 	Group pellets = food.addPellets();
 	private static int pelletCount = 275;
-
-	// The Start method sets up the scene and adds in the game board
+	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
 		
@@ -66,7 +62,6 @@ public class GameScreen extends Application {
 
 		//adds all images and characters into the scene
 		root.getChildren().add(board.addBoard());
-		root.getChildren().add(bottomBox);
 		root.getChildren().add(board.addSides());
 		root.getChildren().add(pellets);
 		root.getChildren().add(pacman.createSprite());
@@ -79,7 +74,9 @@ public class GameScreen extends Application {
 				pause.createWindow();
 			}//end of if
 			else {
-				pacman.move(e);
+				//Can i make this more MVC compliant?
+				pHandle.move(e,pacman);
+				blinky.updatePosition(pacman);
 				root.getChildren().remove(pellets);
 				pellets = eatFood();
 				root.getChildren().add(pellets);
@@ -92,38 +89,37 @@ public class GameScreen extends Application {
 		window.show();
 		
 	}
-
+	
 	public Group eatFood() {
 		System.out.println(pelletCount);
 		Stage stage = new Stage();
-		if (pelletCount == 0) {
+		if(pelletCount == 0) {
 			try {
 				win.start(stage);
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-
-		for (Node n : pellets.getChildren()) {
-			if (collide(n)) {
+		
+		for(Node n: pellets.getChildren()) {
+			if(collide(n)) {
 				n.setTranslateX(2000);
 				pelletCount--;
-			}
+				}
 		}
 		return pellets;
 	}
-
-	public boolean collide(Node other) {
+	
+	public boolean collide(Node other) {			
 		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
-	}// end of collide
-
+	}//end of collide
+	
 	public void close() {
 		window.close();
 	}
-
-	private VBox addCenterBox() { // test comment
+	
+	private VBox addCenterBox() {  //test comment
 		VBox box = new VBox();
 
 		box.setAlignment(Pos.CENTER);
@@ -141,7 +137,7 @@ public class GameScreen extends Application {
 		rect.setTranslateY(675);
 		
 //		int score = 100 * (275 - food.getPelletCount());
-//		int score = pacman.getScore();
+		int score = 1;// = pacman.getScore();
 		
 		Text t = new Text("Score: " + score);
 		t.setTranslateY(675);
