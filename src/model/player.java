@@ -22,7 +22,6 @@ import javafx.scene.shape.Shape;
 
 public class player implements gameSprite, Character{
 
-	private static final int      KEYBOARD_MOVEMENT_DELTA = 5;
 	private String imagePath = "file:/Pacman/ImgResources/Pac-ManRight.gif";
 	private Circle pacman = new Circle(8,8,8);
 	private static gameBoard board = new gameBoard();
@@ -50,19 +49,16 @@ public class player implements gameSprite, Character{
 
 
 	//Draws pacman
-	@Override
 	public Circle createSprite() {
 		// TODO Auto-generated method stub
 		return pacman;
 	}
 
 	//getX and getY store the pacmans current X and Y coords before collision
-	@Override
 	public double getX() {
 		return xPos;
 	}
 
-	@Override
 	public double getY() {
 		return yPos;
 	}
@@ -70,7 +66,7 @@ public class player implements gameSprite, Character{
 	@SuppressWarnings("incomplete-switch")
 	public void move(KeyEvent e) {
 
-		//checks which key was pressed and moves accodingly
+		//checks which key was pressed and moves accordingly
 		//Before it moves it calls the checkCollisons method to see if there is any problems moving in that direction 
 
 		switch (e.getCode()) {
@@ -140,9 +136,11 @@ public class player implements gameSprite, Character{
 	    	if(!checkCollisions()) {
 	    		
 	    		xPos = createSprite().getCenterX();
-				xCoord.add(xPos);
+				
+	    		xCoord.add(xPos);
 				yCoord.add(yPos);
 	    		createSprite().setCenterX(createSprite().getCenterX() - moveSpeed);
+				
 	    	}
 	    	else {
 	    		createSprite().setCenterX(getX());
@@ -232,5 +230,33 @@ public class player implements gameSprite, Character{
 		}
 		return false;
 	}
+
+	//These methods will most likely be deleted soon (I was testing some things)
+//	public int getXArraySize() {
+//		return xCoord.size();
+//	}
+//	
+//	public int getYArraySize() {
+//		return yCoord.size();
+//	}
+//	
+//	public double indexX(int i) {
+//		return xCoord.get(i);
+//	}
+//	
+//	public double indexY(int i) {
+//		return yCoord.get(i);
+//	}
+//	
+//	public int getSpeed() {
+//		return moveSpeed;
+//	}
+//	public void addX(double x) {
+//		xCoord.add(x);
+//	}
+//	
+//	public void addY(double y) {
+//		yCoord.add(y);
+//	}
 	
 }//end of class

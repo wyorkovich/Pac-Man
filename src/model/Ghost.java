@@ -1,14 +1,9 @@
 package model;
 
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 
-public class Ghost implements gameSprite {
+public interface Ghost extends Character {
+
+	public Shape createSprite();
 	
-	private Circle ghost = new Circle(10, 10, 10);
-
-	@Override
-	public Circle createSprite() {
-		return null;
-	}
-
 }

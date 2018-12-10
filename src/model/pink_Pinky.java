@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.*;
+import javafx.scene.shape.Circle;
 
-public class pink_Pinky implements GhostInterface {
+public class pink_Pinky implements Ghost {
 	
 	private static double xPos;
 	private static double yPos;
@@ -25,6 +26,7 @@ public class pink_Pinky implements GhostInterface {
 		yCoord.add(yPos);
 	}
 	
+	@Override
 	public Rectangle createSprite() {
 		return pink;
 	}
@@ -57,5 +59,6 @@ public class pink_Pinky implements GhostInterface {
 	public boolean collide(Node other) {
 		return false;
 	}
+
 
 }

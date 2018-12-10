@@ -1,6 +1,7 @@
 package model;
 
 import javafx.scene.Node;
+import javafx.scene.shape.Shape;
 
 public interface Character {
 		
@@ -10,5 +11,5 @@ public interface Character {
 	public boolean checkSides();
 	public boolean checkCollisions();
 	public boolean collide(Node other);
-	
+	public Shape createSprite();
 }

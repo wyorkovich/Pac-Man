@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.*;
 
-public class orange_Clyde implements GhostInterface {
+public class orange_Clyde implements Ghost {
 	
 	private static double xPos;
 	private static double yPos;
@@ -25,6 +25,7 @@ public class orange_Clyde implements GhostInterface {
 		yCoord.add(yPos);
 	}
 
+	@Override
 	public Rectangle createSprite() {
 		return orange;
 	}
