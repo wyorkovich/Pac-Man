@@ -3,11 +3,7 @@ package model;
 import java.util.ArrayList;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.paint.*;
-
-import javafx.scene.Node;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 
 public class red_Blinky implements Ghost {
 	
@@ -17,6 +13,7 @@ public class red_Blinky implements Ghost {
 	private static double dest_y;
 	private static int speed;
 	private static Rectangle red;
+	private static gameBoard board = new gameBoard();
 	private ArrayList<Double> xCoord = new ArrayList<Double>();
 	private ArrayList<Double> yCoord = new ArrayList<Double>();
 
@@ -27,12 +24,12 @@ public class red_Blinky implements Ghost {
 	
 	
 	public red_Blinky() {
-		red = new Rectangle(8,8);
+		red = new Rectangle(12,12);
 		red.setTranslateX(650);
 		red.setTranslateY(323);
 		red.setFill(Color.RED);
-		xPos = createSprite().getX() + 4; // getX -> upper left corner + 4 = center of side of square
-		yPos = createSprite().getY() + 4; // getX -> upper left corner + 4 = center of side of square
+		xPos = createSprite().getX() + 6; // getX -> upper left corner + 4 = center of side of square
+		yPos = createSprite().getY() + 6; // getX -> upper left corner + 4 = center of side of square
 		
 		xCoord.add(xPos);
 		yCoord.add(yPos);
@@ -51,31 +48,24 @@ public class red_Blinky implements Ghost {
 		return red;
 	}
 
-	public void move() {
-		//TODO: Matt add movement styles
-	}
-	
 	public void moveX(player p) {
 		dest_x = p.getX();
 		if (xPos < dest_x) {
-    		createSprite().setX(createSprite().getX() + 4 + speed);
+    		createSprite().setX(createSprite().getX() + 6 + speed);
     		xPos += speed;
     	} else if (xPos > dest_x) {
-    		createSprite().setX(createSprite().getX() + 4 - speed);
+    		createSprite().setX(createSprite().getX() + 6 - speed);
     		xPos -= speed;
     	}
 	}
 	
 	public void moveY(player p) {
-		
 		dest_y = p.getY();
-		
-    	        
     	if (yPos < dest_y) {
-    		createSprite().setY(createSprite().getY() + 4 + speed);
+    		createSprite().setY(createSprite().getY() + 6 + speed);
     		yPos += speed;
     	} else if (yPos > dest_y) {
-    		createSprite().setY(createSprite().getY() + 4 - speed);
+    		createSprite().setY(createSprite().getY() + 6 - speed);
     		yPos -= speed;
     	}
 	}
@@ -93,17 +83,27 @@ public class red_Blinky implements Ghost {
 
 	@Override
 	public boolean checkSides() {
+		for(Node n: board.addSides().getChildren()) {
+			if(collide(n)) {
+				return true;
+			}//end of if
+		}//end of for
 		return false;
 	}
 
 	@Override
 	public boolean checkCollisions() {
+		for(Node n : board.addBoard().getChildren()) {
+			if(collide(n)) {
+				return true;
+			}
+		}	
 		return false;
 	}
 
 	@Override
 	public boolean collide(Node other) {
-		return false;
+		return (createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
 	}
 
 }
