@@ -11,11 +11,10 @@ public class red_Blinky implements Ghost {
 	private Circle blinky = new Circle(8,8,8);
 	private double xPos;
 	private double yPos;
-	private int movespeed = 2;
 	private ArrayList<Double> xCoord = new ArrayList<Double>();
 	private ArrayList<Double> yCoord = new ArrayList<Double>();
 	private double dest_x, dest_y;
-	private int speed = 2;
+	private int speed = 4;
 	// First have ghost move at slower speed with no collision at the space pacman is on to make something 
 	//playable. use animation timer.
 	//TODO Make ghost move in same direction until collision then decide where to go using if statements
@@ -36,9 +35,13 @@ public class red_Blinky implements Ghost {
 
 	public void updatePosition(player p) {
     	
+		moveX(p);
+		moveY(p);
+	}
+	
+
+	public void moveX(player p) {
 		dest_x = p.getX();
-		dest_y = p.getY();
-		
 		if (xPos < dest_x) {
     		createSprite().setCenterX(createSprite().getCenterX() + speed);
     		xPos += speed;
@@ -46,6 +49,12 @@ public class red_Blinky implements Ghost {
     		createSprite().setCenterX(createSprite().getCenterX() - speed);
     		xPos -= speed;
     	}
+	}
+	
+	public void moveY(player p) {
+		
+		dest_y = p.getY();
+		
     	        
     	if (yPos < dest_y) {
     		createSprite().setCenterY(createSprite().getCenterY() + speed);
@@ -56,7 +65,6 @@ public class red_Blinky implements Ghost {
     	}
 	}
 	
-
 	
 	@Override
 	public double getX() {
