@@ -36,12 +36,6 @@ public class red_Blinky implements ghost {
 	@Override
 	public void updatePosition(player p) {
     	
-		moveX(p);
-		moveY(p);
-	}
-	
-
-	public void moveX(player p) {
 		dest_x = p.getX();
 		if (xPos < dest_x) {
     		createSprite().setCenterX(createSprite().getCenterX() + speed);
@@ -50,13 +44,10 @@ public class red_Blinky implements ghost {
     		createSprite().setCenterX(createSprite().getCenterX() - speed);
     		xPos -= speed;
     	}
-	}
-	
-	public void moveY(player p) {
 		
 		dest_y = p.getY();
 		
-    	        
+        
     	if (yPos < dest_y) {
     		createSprite().setCenterY(createSprite().getCenterY() + speed);
     		yPos += speed;
@@ -65,6 +56,7 @@ public class red_Blinky implements ghost {
     		yPos -= speed;
     	}
 	}
+	
 	
 	
 	@Override
