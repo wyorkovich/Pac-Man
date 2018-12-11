@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonWriter;
-import com.oracle.tools.packager.RelativeFileSet.Type;
 
 import javafx.scene.text.Text;
 import model.pellet;
