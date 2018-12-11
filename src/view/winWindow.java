@@ -1,5 +1,6 @@
 package view;
 
+import Database.Database;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -10,14 +11,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class winWindow extends Application {
 
-	private static String TITLE = "YOU WIN";
+	private static String TITLE = "Settings";
 	private static int SCENE_WIDTH = 600;
 	private static int SCENE_HEIGHT = 500;
 	private static Stage window = new Stage();
+	Database leaderBoard = new Database();
 	
 	
 	@Override
@@ -26,7 +29,9 @@ public class winWindow extends Application {
 		BorderPane root = new BorderPane();
 		VBox centerBox = addCenterBox();
 		root.setCenter(centerBox);
-		centerBox.setStyle("-fx-background-color: BLACK");
+		centerBox.setStyle("-fx-background-color: CORNFLOWERBLUE");
+		
+		
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		
@@ -40,9 +45,13 @@ public class winWindow extends Application {
 		VBox box = new VBox();
 		box.setSpacing(25);
 		ObservableList<Node> list = box.getChildren();
-		Text text = new Text (100 ,100, "YOU WIN");
-		text.setFill(Color.RED);
-		list.addAll(text);
+		Text text = new Text ("YOU WIN");
+		
+		 Text highScores = new Text(leaderBoard.printHighScore());
+	        highScores.setFill(Color.YELLOW);
+	        highScores.setTextAlignment(TextAlignment.CENTER);
+		
+		list.addAll(text, highScores);
 		box.setAlignment(Pos.CENTER);
 		return box;
 	}
