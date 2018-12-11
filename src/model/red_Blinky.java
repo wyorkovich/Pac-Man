@@ -6,7 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class red_Blinky implements Ghost {
+public class red_Blinky implements ghost {
 
 	private Circle blinky = new Circle(8,8,8);
 	private double xPos;
@@ -33,6 +33,7 @@ public class red_Blinky implements Ghost {
 		
 	}
 
+	@Override
 	public void updatePosition(player p) {
     	
 		moveX(p);
@@ -96,6 +97,13 @@ public class red_Blinky implements Ghost {
 		// TODO Auto-generated method stub		
 		return blinky;
 	}
+
+	@Override
+	public boolean checkState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 
 }

@@ -20,7 +20,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 
-public class player implements gameSprite, Character{
+public class player implements gameSprite{
 
 	private String imagePath = "file:/Pacman/ImgResources/Pac-ManRight.gif";
 	private Circle pacman = new Circle(8,8,8);

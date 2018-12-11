@@ -1,9 +1,8 @@
 package model;
 
-import javafx.scene.shape.Circle;
+public interface ghost extends gameSprite {
 
-public interface Ghost extends Character {
-
-	Circle createSprite();
+	public boolean checkState();
+	public void updatePosition(player p);
 	
 }
