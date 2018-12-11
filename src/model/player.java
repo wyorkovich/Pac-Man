@@ -72,8 +72,9 @@ public class player implements gameSprite{
 
 		switch (e.getCode()) {
 		case DOWN:
-			checkFood();
-			score.update(food.getPelletCount());
+			if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 			if(!checkCollisions()) {
 				yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -99,8 +100,9 @@ public class player implements gameSprite{
 
 			break;
 	    case UP:
-	    	checkFood();
-	    	score.update(food.getPelletCount());
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(!checkCollisions()) {
 	    		yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -126,8 +128,9 @@ public class player implements gameSprite{
 	    	
 	    	break;
 	    case LEFT:
-	    	checkFood();
-	    	score.update(food.getPelletCount());
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(checkSides()) {
 	    		
 	    		xPos += 375;
@@ -162,8 +165,9 @@ public class player implements gameSprite{
 	    	
 	    	break;
 	    case RIGHT:
-	    	checkFood();
-	    	score.update(food.getPelletCount());
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(checkSides()) {
 	    		xPos -= 375;
 				xCoord.add(xPos);
@@ -225,9 +229,10 @@ public class player implements gameSprite{
 	}//end of collide
 
 	public boolean checkFood() {
-		for(Node n: food.addPellets().getChildren()) {
+		for(Node n: food.getPelletGroup().getChildren()) {
 			if(collide(n)) {
 				n.setTranslateX(2000);
+				food.removePellet();
 				return true;
 			}
 		}
