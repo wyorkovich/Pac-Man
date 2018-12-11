@@ -66,6 +66,7 @@ public class GameScreen extends Application{
 		root.getChildren().add(pellets);
 		root.getChildren().add(pacman.createSprite());
 		root.getChildren().add(blinky.createSprite());
+		root.getChildren().add(bottomBox);
 		
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
@@ -137,7 +138,7 @@ public class GameScreen extends Application{
 		rect.setTranslateY(675);
 		
 //		int score = 100 * (275 - food.getPelletCount());
-		int score = 1;// = pacman.getScore();
+		int score = this.updateScore();// = pacman.getScore();
 		
 		Text t = new Text("Score: " + score);
 		t.setTranslateY(675);
@@ -158,8 +159,8 @@ public class GameScreen extends Application{
 		return box;
 	}
 	
-	public void updateScore() {
-		pacman.getScore();
+	public int updateScore() {
+		return pacman.getScore();
 	}
 
 }

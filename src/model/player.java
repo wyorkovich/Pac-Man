@@ -74,6 +74,7 @@ public class player implements gameSprite, Character{
 		case DOWN:
 			checkFood();
 			score.update(food.getPelletCount());
+//	    	getScore();
 			if(!checkCollisions()) {
 				yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -101,6 +102,7 @@ public class player implements gameSprite, Character{
 	    case UP:
 	    	checkFood();
 	    	score.update(food.getPelletCount());
+//	    	getScore();
 	    	if(!checkCollisions()) {
 	    		yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -128,6 +130,7 @@ public class player implements gameSprite, Character{
 	    case LEFT:
 	    	checkFood();
 	    	score.update(food.getPelletCount());
+//	    	getScore();
 	    	if(checkSides()) {
 	    		
 	    		xPos += 375;
@@ -164,6 +167,7 @@ public class player implements gameSprite, Character{
 	    case RIGHT:
 	    	checkFood();
 	    	score.update(food.getPelletCount());
+//	    	getScore();
 	    	if(checkSides()) {
 	    		xPos -= 375;
 				xCoord.add(xPos);
