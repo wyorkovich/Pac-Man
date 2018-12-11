@@ -16,18 +16,15 @@ public class Database {
 
 	private String name;
 	private int score;
-	player p = new player();
 	
 	Gson database = new Gson();
 	
 	public Database() {
 		
-		String json = database.toJson(p);
 		
 		try {
 
 			FileWriter write = new FileWriter("src/leaderboard.json");
-			write.write(json);
 			write.close();
 			
 		} 
