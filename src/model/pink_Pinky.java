@@ -3,7 +3,7 @@ package model;
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
 
-public class pink_Pinky implements Ghost {
+public class pink_Pinky implements ghost {
 
 	public pink_Pinky() {
 	}
@@ -37,6 +37,17 @@ public class pink_Pinky implements Ghost {
 	public Circle createSprite() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean checkState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void updatePosition(player p) {
+		// TODO Auto-generated method stub
 	}
 
 }
