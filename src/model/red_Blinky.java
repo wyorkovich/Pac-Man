@@ -37,25 +37,28 @@ public class red_Blinky implements ghost {
 	public void updatePosition(player p) {
     	
 		dest_x = p.getX();
-		if (xPos < dest_x) {
-    		createSprite().setCenterX(createSprite().getCenterX() + speed);
-    		xPos += speed;
-    	} else if (xPos > dest_x) {
-    		createSprite().setCenterX(createSprite().getCenterX() - speed);
-    		xPos -= speed;
-    	}
-		
 		dest_y = p.getY();
 		
-        
-    	if (yPos < dest_y) {
-    		createSprite().setCenterY(createSprite().getCenterY() + speed);
-    		yPos += speed;
-    	} else if (yPos > dest_y) {
-    		createSprite().setCenterY(createSprite().getCenterY() - speed);
-    		yPos -= speed;
-    	}
+		if(xPos != dest_x) {
+			if (xPos < dest_x) {
+	    		createSprite().setCenterX(createSprite().getCenterX() + speed);
+	    		xPos += speed;
+	    	} else if (xPos > dest_x) {
+	    		createSprite().setCenterX(createSprite().getCenterX() - speed);
+	    		xPos -= speed;
+	    	}
+		}//end of if
+		else if (xPos != dest_y) {
+	    	if (yPos < dest_y) {
+	    		createSprite().setCenterY(createSprite().getCenterY() + speed);
+	    		yPos += speed;
+	    	} else if (yPos > dest_y) {
+	    		createSprite().setCenterY(createSprite().getCenterY() - speed);
+	    		yPos -= speed;
+	    	}
+		}//end of else if
 	}
+	
 	
 	
 	
