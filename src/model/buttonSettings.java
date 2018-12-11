@@ -7,13 +7,11 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import model.GameButton;
 
 public class buttonSettings implements GameButton{
 
 	private Button button;
 	private EventHandler settings = (EventHandler) new ActionHandlerSettings();
-
 	
 	//Creates the buttons attributes
 	public buttonSettings() {
