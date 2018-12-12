@@ -20,7 +20,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 
-public class player implements gameSprite, Character{
+public class player implements gameSprite{
 
 	private String imagePath = "file:/Pacman/ImgResources/Pac-ManRight.gif";
 	private Circle pacman = new Circle(8,8,8);
@@ -72,9 +72,9 @@ public class player implements gameSprite, Character{
 
 		switch (e.getCode()) {
 		case DOWN:
-			checkFood();
-			score.update(food.getPelletCount());
-//	    	getScore();
+			if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 			if(!checkCollisions()) {
 				yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -100,9 +100,9 @@ public class player implements gameSprite, Character{
 
 			break;
 	    case UP:
-	    	checkFood();
-	    	score.update(food.getPelletCount());
-//	    	getScore();
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(!checkCollisions()) {
 	    		yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -128,9 +128,9 @@ public class player implements gameSprite, Character{
 	    	
 	    	break;
 	    case LEFT:
-	    	checkFood();
-	    	score.update(food.getPelletCount());
-//	    	getScore();
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(checkSides()) {
 	    		
 	    		xPos += 375;
@@ -165,9 +165,9 @@ public class player implements gameSprite, Character{
 	    	
 	    	break;
 	    case RIGHT:
-	    	checkFood();
-	    	score.update(food.getPelletCount());
-//	    	getScore();
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(checkSides()) {
 	    		xPos -= 375;
 				xCoord.add(xPos);
@@ -229,9 +229,10 @@ public class player implements gameSprite, Character{
 	}//end of collide
 
 	public boolean checkFood() {
-		for(Node n: food.addPellets().getChildren()) {
+		for(Node n: food.getPelletGroup().getChildren()) {
 			if(collide(n)) {
 				n.setTranslateX(2000);
+				food.removePellet();
 				return true;
 			}
 		}

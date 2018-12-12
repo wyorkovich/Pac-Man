@@ -12,6 +12,8 @@ public class pellet {
 	private Circle pellet;
 	private int count = 0;
 	private int space = 20;
+	private Group root = new Group();
+	
 	public pellet() {
 			
 	}
@@ -28,10 +30,15 @@ public class pellet {
 		return count;
 	}
 	
+	public void removePellet() {
+		count--;
+	}
+	
+	public Group getPelletGroup() {
+		return root;
+	}
+	
 	public Group addPellets() {
-		
-		Group root = new Group();
-		
 		
 		//horizontal stretch left of pacman
 		int startingX = 530;

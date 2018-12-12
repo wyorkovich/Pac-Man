@@ -3,7 +3,7 @@ package model;
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
 
-public class orange_Clyde implements Ghost {
+public class orange_Clyde implements ghost {
 
 	public orange_Clyde() {
 	}
@@ -37,6 +37,18 @@ public class orange_Clyde implements Ghost {
 	public Circle createSprite() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean checkState() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void updatePosition(player p) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

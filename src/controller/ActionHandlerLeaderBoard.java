@@ -1,5 +1,6 @@
 package controller;
 
+import Database.Database;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
@@ -12,6 +13,7 @@ public class ActionHandlerLeaderBoard implements EventHandler {
 	
 	Stage stage = new Stage();
 	Leaderboard screen = new Leaderboard();
+	
 	
 	@Override
 	public void handle(Event arg0) {

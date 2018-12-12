@@ -49,6 +49,7 @@ public class View extends Application {
 	public buttonSettings settings = new buttonSettings();
 	public buttonQuit quit = new buttonQuit();
 	public buttonLeaderBoard leader = new buttonLeaderBoard();
+	private static Database scores = new Database();
 
 	//The start method sets up the scene and then launches it
 	@Override
