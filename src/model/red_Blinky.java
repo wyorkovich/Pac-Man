@@ -6,7 +6,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 
 public class red_Blinky implements Ghost {
-	
+
 	private static double xPos;
 	private static double yPos;
 	private static double dest_x;
@@ -21,8 +21,8 @@ public class red_Blinky implements Ghost {
 	//playable. use animation timer.
 	//TODO Make ghost move in same direction until collision then decide where to go using if statements
 	// check to see if pacman is on same X or Y to make the corners, 
-	
-	
+
+
 	public red_Blinky() {
 		red = new Rectangle(12,12);
 		red.setTranslateX(650);
@@ -30,19 +30,19 @@ public class red_Blinky implements Ghost {
 		red.setFill(Color.RED);
 		xPos = createSprite().getX() + 6; // getX -> upper left corner + 4 = center of side of square
 		yPos = createSprite().getY() + 6; // getX -> upper left corner + 4 = center of side of square
-		
+
 		xCoord.add(xPos);
 		yCoord.add(yPos);
-		
+
 	}
 
 	public void updatePosition(player p) {
-    	
+
 		moveX(p);
 		moveY(p);
 
 	}
-	
+
 	@Override
 	public Rectangle createSprite() {
 		return red;
@@ -50,27 +50,31 @@ public class red_Blinky implements Ghost {
 
 	public void moveX(player p) {
 		dest_x = p.getX();
-		if (xPos < dest_x) {
-    		createSprite().setX(createSprite().getX() + 6 + speed);
-    		xPos += speed;
-    	} else if (xPos > dest_x) {
-    		createSprite().setX(createSprite().getX() + 6 - speed);
-    		xPos -= speed;
-    	}
+		if(!checkCollisions()) {
+			if (xPos < dest_x) {
+				createSprite().setX(createSprite().getX() + 6 + speed);
+				xPos += speed;
+			} else if (xPos > dest_x) {
+				createSprite().setX(createSprite().getX() + 6 - speed);
+				xPos -= speed;
+			}
+		}
 	}
-	
+
 	public void moveY(player p) {
 		dest_y = p.getY();
-    	if (yPos < dest_y) {
-    		createSprite().setY(createSprite().getY() + 6 + speed);
-    		yPos += speed;
-    	} else if (yPos > dest_y) {
-    		createSprite().setY(createSprite().getY() + 6 - speed);
-    		yPos -= speed;
-    	}
+		if(!checkCollisions()) {
+			if (yPos < dest_y) {
+				createSprite().setY(createSprite().getY() + 6 + speed);
+				yPos += speed;
+			} else if (yPos > dest_y) {
+				createSprite().setY(createSprite().getY() + 6 - speed);
+				yPos -= speed;
+			}
+		}
 	}
-	
-	
+
+
 	@Override
 	public double getX() {
 		return xPos;

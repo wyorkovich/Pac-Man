@@ -1,14 +1,26 @@
 package model;
 
+import java.util.ArrayList;
+
 import javafx.scene.Node;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 
 public class blue_Inky implements Ghost {
-	
+
 	private static double xPos;
 	private static double yPos;
-
+	private static double dest_x;
+	private static double dest_y;
+	private static int speed;
+	private static Rectangle blue;
+	private static gameBoard board = new gameBoard();
+	private ArrayList<Double> xCoord = new ArrayList<Double>();
+	private ArrayList<Double> yCoord = new ArrayList<Double>();
+	
 	public blue_Inky() {
+		blue = new Rectangle(12,12);
+		
 	}
 
 	@Override
