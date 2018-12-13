@@ -36,34 +36,26 @@ public class GameScreen extends Application{
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
 	private static pauseWindow pause = new pauseWindow();
-	private static pellet food; // = new pellet(); //creates pellet object
+	private static pellet food;
 	private static winWindow win = new winWindow();
 	private static HBox bottomBox;
 	private static Text scoreText;
 
-//	private static Score score = new Score();
-
 	private static red_Blinky blinky = new red_Blinky();
 	private static ActionHandlerPacman pHandle = new ActionHandlerPacman();
 	Group root = new Group();
-//	Group pellets = food.getPelletGroup(); //adds pellets to pellet object
-	private static int pelletCount = 275;
+	
 	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
 		
-		//BorderPane root = new BorderPane();
-		
-		
 		VBox centerBox = addCenterBox();
 		bottomBox = addBottomBox();
-		//root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: BLACK");
-		//root.setBottom(label);
 		food = pacman.getFood();
+		
 		//adds all images and characters into the scene
-		root.getChildren().add(board.addBoard());
-		root.getChildren().add(board.addSides());
+		root.getChildren().add(board.getBoardGroup());
 		root.getChildren().add(food.getPelletGroup());
 		root.getChildren().add(pacman.createSprite());
 		root.getChildren().add(blinky.createSprite());
@@ -83,7 +75,7 @@ public class GameScreen extends Application{
 				scoreText.setText("Score: " + updateScore());
 				root.getChildren().add(food.getPelletGroup());
 			}//end of else
-			});
+		});
 		
 		window.setTitle(TITLE);
 		window.setScene(scene);
@@ -91,31 +83,6 @@ public class GameScreen extends Application{
 		window.show();
 		
 	}
-	
-	public Group eatFood() {
-		System.out.println(pelletCount);
-		Stage stage = new Stage();
-		if(pelletCount == 0) {
-			try {
-				win.start(stage);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		for(Node n: food.getPelletGroup().getChildren()) {
-			if(collide(n)) {
-				n.setTranslateX(2000);
-				pelletCount--;
-				}
-		}
-		return food.getPelletGroup();
-	}
-	
-	public boolean collide(Node other) {			
-		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
-	}//end of collide
 	
 	public void close() {
 		window.close();
@@ -138,8 +105,6 @@ public class GameScreen extends Application{
 		rect.setTranslateX(400);
 		rect.setTranslateY(675);
 		
-//		int score = 100 * (275 - food.getPelletCount());
-//		int score = this.updateScore();// = pacman.getScore();
 		int score = pacman.getScore();
 		
 		scoreText = new Text("Score: " + score);
@@ -147,13 +112,6 @@ public class GameScreen extends Application{
 		scoreText.setTranslateX(-100);
 		scoreText.setFont(Font.font("Impact", 20));
 		scoreText.setFill(Color.WHITE);
-		
-//		if(food.getPelletCount() < score){
-//			score = 100 * (275 - food.getPelletCount());
-//		}
-		
-//		score = player.score;
-//		int score = pacman
 		
 		list.add(rect);
 		list.add(scoreText);

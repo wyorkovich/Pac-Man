@@ -15,7 +15,7 @@ public class pellet {
 	private Group root = new Group();
 	
 	public pellet() {
-			addPellets();
+		addPellets();
 	}
 	
 	public int reward() {

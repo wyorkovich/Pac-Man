@@ -203,7 +203,7 @@ public class player implements gameSprite{
 	//Checks to see if pacman intersects with the side tunnels
 	@Override
 	public boolean checkSides() {
-		for(Node n: board.addSides().getChildren()) {
+		for(Node n: board.addSides().getChildren()) { //should be board.getBoardGroup().getChildren(), but bugs occur. Not sure why.
 			if(collide(n)) {
 				return true;
 			}//end of if
@@ -238,34 +238,6 @@ public class player implements gameSprite{
 		}
 		return false;
 	}
-
-	//These methods will most likely be deleted soon (I was testing some things)
-//	public int getXArraySize() {
-//		return xCoord.size();
-//	}
-//	
-//	public int getYArraySize() {
-//		return yCoord.size();
-//	}
-//	
-//	public double indexX(int i) {
-//		return xCoord.get(i);
-//	}
-//	
-//	public double indexY(int i) {
-//		return yCoord.get(i);
-//	}
-//	
-//	public int getSpeed() {
-//		return moveSpeed;
-//	}
-//	public void addX(double x) {
-//		xCoord.add(x);
-//	}
-//	
-//	public void addY(double y) {
-//		yCoord.add(y);
-//	}
 	
 	public int getScore() {
 		return score.getScore();
