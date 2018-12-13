@@ -28,8 +28,8 @@ public class red_Blinky implements Ghost {
 		red.setTranslateX(650);
 		red.setTranslateY(323);
 		red.setFill(Color.RED);
-		xPos = createSprite().getX() + 6; // getX -> upper left corner + 4 = center of side of square
-		yPos = createSprite().getY() + 6; // getX -> upper left corner + 4 = center of side of square
+		xPos = createSprite().getX() + 6; // getX -> upper left corner + 6 = center of side of square
+		yPos = createSprite().getY() + 6; // getX -> upper left corner + 6 = center of side of square
 
 		xCoord.add(xPos);
 		yCoord.add(yPos);
