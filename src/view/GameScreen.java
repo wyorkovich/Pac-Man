@@ -95,7 +95,7 @@ public class GameScreen extends Application{
 		}
 		
 		for(Node n: pellets.getChildren()) {
-			if(collide(n)) {
+			if(pacman.collide(n)) {
 				n.setTranslateX(2000);
 				pelletCount--;
 				}
@@ -103,9 +103,9 @@ public class GameScreen extends Application{
 		return pellets;
 	}
 	
-	public boolean collide(Node other) {			
-		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
-	}//end of collide
+//	public boolean collide(Node other) {			
+//		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
+//	}//end of collide
 	
 	public void close() {
 		window.close();
