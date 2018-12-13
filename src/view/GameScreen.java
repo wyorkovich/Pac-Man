@@ -36,16 +36,17 @@ public class GameScreen extends Application{
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
 	private static pauseWindow pause = new pauseWindow();
-	private static pellet food = new pellet();
+	private static pellet food; // = new pellet(); //creates pellet object
 	private static winWindow win = new winWindow();
 	private static HBox bottomBox;
+	private static Text scoreText;
 
 //	private static Score score = new Score();
 
 	private static red_Blinky blinky = new red_Blinky();
 	private static ActionHandlerPacman pHandle = new ActionHandlerPacman();
 	Group root = new Group();
-	Group pellets = food.addPellets();
+//	Group pellets = food.getPelletGroup(); //adds pellets to pellet object
 	private static int pelletCount = 275;
 	//The Start method sets up the scene and adds in the game board
 	@Override
@@ -59,11 +60,11 @@ public class GameScreen extends Application{
 		//root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: BLACK");
 		//root.setBottom(label);
-
+		food = pacman.getFood();
 		//adds all images and characters into the scene
 		root.getChildren().add(board.addBoard());
 		root.getChildren().add(board.addSides());
-		root.getChildren().add(pellets);
+		root.getChildren().add(food.getPelletGroup());
 		root.getChildren().add(pacman.createSprite());
 		root.getChildren().add(blinky.createSprite());
 		root.getChildren().add(bottomBox);
@@ -78,9 +79,9 @@ public class GameScreen extends Application{
 				//Can i make this more MVC compliant?
 				pHandle.move(e,pacman);
 				blinky.updatePosition(pacman);
-				root.getChildren().remove(pellets);
-				pellets = eatFood();
-				root.getChildren().add(pellets);
+				root.getChildren().remove(food.getPelletGroup());
+				scoreText.setText("Score: " + updateScore());
+				root.getChildren().add(food.getPelletGroup());
 			}//end of else
 			});
 		
@@ -103,13 +104,13 @@ public class GameScreen extends Application{
 			}
 		}
 		
-		for(Node n: pellets.getChildren()) {
+		for(Node n: food.getPelletGroup().getChildren()) {
 			if(collide(n)) {
 				n.setTranslateX(2000);
 				pelletCount--;
 				}
 		}
-		return pellets;
+		return food.getPelletGroup();
 	}
 	
 	public boolean collide(Node other) {			
@@ -141,11 +142,11 @@ public class GameScreen extends Application{
 //		int score = this.updateScore();// = pacman.getScore();
 		int score = pacman.getScore();
 		
-		Text t = new Text("Score: " + score);
-		t.setTranslateY(675);
-		t.setTranslateX(-100);
-		t.setFont(Font.font("Impact", 20));
-		t.setFill(Color.WHITE);
+		scoreText = new Text("Score: " + score);
+		scoreText.setTranslateY(675);
+		scoreText.setTranslateX(-100);
+		scoreText.setFont(Font.font("Impact", 20));
+		scoreText.setFill(Color.WHITE);
 		
 //		if(food.getPelletCount() < score){
 //			score = 100 * (275 - food.getPelletCount());
@@ -155,7 +156,7 @@ public class GameScreen extends Application{
 //		int score = pacman
 		
 		list.add(rect);
-		list.add(t);
+		list.add(scoreText);
 
 		return box;
 	}

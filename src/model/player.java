@@ -224,7 +224,7 @@ public class player implements gameSprite{
 
 	//checks to see if any shape collides with pacman
 	@Override
-	public boolean collide(Node other) {			
+	public boolean collide(Node other) {
 		return (createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
 	}//end of collide
 
@@ -269,6 +269,10 @@ public class player implements gameSprite{
 	
 	public int getScore() {
 		return score.getScore();
+	}
+	
+	public pellet getFood() {
+		return food;
 	}
 	
 }//end of class

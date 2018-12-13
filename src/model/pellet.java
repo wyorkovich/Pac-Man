@@ -15,7 +15,7 @@ public class pellet {
 	private Group root = new Group();
 	
 	public pellet() {
-			
+			addPellets();
 	}
 	
 	public int reward() {
@@ -50,6 +50,7 @@ public class pellet {
 			root.getChildren().add(px);
 			startingX += space;
 			count++;
+			System.out.println(px.getBoundsInParent());
 		}
 		
 		//horizontal stretch right of pacman
