@@ -19,8 +19,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
+import model.blue_Inky;
 import model.gameBoard;
+import model.orange_Clyde;
 import model.pellet;
+import model.pink_Pinky;
 import model.player;
 import model.red_Blinky;
 
@@ -36,6 +39,9 @@ public class GameScreen extends Application{
 	private static pellet food = new pellet();
 	private static winWindow win = new winWindow();
 	private static red_Blinky blinky = new red_Blinky();
+	private static blue_Inky inky = new blue_Inky();
+	private static orange_Clyde clyde = new orange_Clyde();
+	private static pink_Pinky pinky = new pink_Pinky();
 	private static ActionHandlerPacman pHandle = new ActionHandlerPacman();
 	Group root = new Group();
 	Group pellets = food.addPellets();
@@ -58,6 +64,9 @@ public class GameScreen extends Application{
 		root.getChildren().add(pellets);
 		root.getChildren().add(pacman.createSprite());
 		root.getChildren().add(blinky.createSprite());
+		root.getChildren().add(inky.createSprite());
+		root.getChildren().add(clyde.createSprite());
+		root.getChildren().add(pinky.createSprite());
 		
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);

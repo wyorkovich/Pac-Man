@@ -41,6 +41,9 @@ public class winWindow extends Application {
 		box.setSpacing(25);
 		ObservableList<Node> list = box.getChildren();
 		Text text = new Text (100 ,100, "YOU WIN");
+		text.setScaleX(10);
+		text.setScaleY(10);
+		text.setScaleZ(10);
 		text.setFill(Color.RED);
 		list.addAll(text);
 		box.setAlignment(Pos.CENTER);
