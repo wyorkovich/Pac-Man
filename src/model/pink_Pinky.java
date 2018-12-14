@@ -21,7 +21,7 @@ public class pink_Pinky implements ghost {
 	public pink_Pinky() {
 		pink = new Rectangle(12,12);
 		pink.setTranslateX(658);
-		pink.setTranslateY(490);
+		pink.setTranslateY(330);
 		pink.setFill(Color.PINK);
 		xPos = createSprite().getX() + 6; // getX -> upper left corner + 4 = center of side of square
 		yPos = createSprite().getY() + 6; // getX -> upper left corner + 4 = center of side of square

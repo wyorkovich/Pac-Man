@@ -19,13 +19,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
-import model.blue_Inky;
+import model.cyan_Inky;
 import model.gameBoard;
 import model.orange_Clyde;
 import model.pellet;
 import model.pink_Pinky;
 import model.player;
 import model.red_Blinky;
+import model.ghost;
 
 public class GameScreen extends Application{
 
@@ -39,7 +40,7 @@ public class GameScreen extends Application{
 	private static pellet food = new pellet();
 	private static winWindow win = new winWindow();
 	private static red_Blinky blinky = new red_Blinky();
-	private static blue_Inky inky = new blue_Inky();
+	private static cyan_Inky inky = new cyan_Inky();
 	private static orange_Clyde clyde = new orange_Clyde();
 	private static pink_Pinky pinky = new pink_Pinky();
 	private static ActionHandlerPacman pHandle = new ActionHandlerPacman();
@@ -78,6 +79,9 @@ public class GameScreen extends Application{
 				//Can i make this more MVC compliant?
 				pHandle.move(e,pacman);
 				blinky.updatePosition(pacman);
+				inky.updatePosition(pacman);
+				clyde.updatePosition(pacman);
+				pinky.updatePosition(pacman);
 				root.getChildren().remove(pellets);
 				pellets = eatFood();
 				root.getChildren().add(pellets);

@@ -13,7 +13,6 @@ public class gameBoard {
 	private static Color border = Color.MIDNIGHTBLUE;
 	private static int sideLength = 220;
 	private static int topLength = 500;
-	private player pacman = new player();
 		
 	public gameBoard() {
 		

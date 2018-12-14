@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class blue_Inky implements ghost {
+public class cyan_Inky implements ghost {
 
 	private static double xPos;
 	private static double yPos;
@@ -17,7 +17,7 @@ public class blue_Inky implements ghost {
 	private ArrayList<Double> xCoord = new ArrayList<Double>();
 	private ArrayList<Double> yCoord = new ArrayList<Double>();
 	
-	public blue_Inky() {
+	public cyan_Inky() {
 		blue = new Rectangle(12,12);
 		blue.setTranslateX(670);
 		blue.setTranslateY(323);
