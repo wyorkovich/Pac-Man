@@ -74,6 +74,9 @@ public class GameScreen extends Application{
 				root.getChildren().remove(food.getPelletGroup());
 				scoreText.setText("Score: " + updateScore());
 				root.getChildren().add(food.getPelletGroup());
+				if(food.getPelletCount() == 0) {
+					win.getWindow().show();
+				}
 			}//end of else
 		});
 		

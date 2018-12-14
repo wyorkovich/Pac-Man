@@ -56,4 +56,8 @@ public class winWindow extends Application {
 		return box;
 	}
 	
+	public Stage getWindow() {
+		return window;
+	}
+	
 }
