@@ -1,93 +1,116 @@
 package model;
 
 import java.util.ArrayList;
-
 import javafx.scene.Node;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 
 public class red_Blinky implements ghost {
 
-	private Circle blinky = new Circle(8,8,8);
-	private double xPos;
-	private double yPos;
+	private static double xPos;
+	private static double yPos;
+	private static double dest_x;
+	private static double dest_y;
+	private static int speed;
+	private static Rectangle red;
+	private static gameBoard board = new gameBoard();
 	private ArrayList<Double> xCoord = new ArrayList<Double>();
 	private ArrayList<Double> yCoord = new ArrayList<Double>();
-	private double dest_x, dest_y;
-	private int speed = 4;
+
 	// First have ghost move at slower speed with no collision at the space pacman is on to make something 
 	//playable. use animation timer.
 	//TODO Make ghost move in same direction until collision then decide where to go using if statements
 	// check to see if pacman is on same X or Y to make the corners, 
-	
-	
+
+
 	public red_Blinky() {
-		blinky.setFill(Color.RED);
-		blinky.setTranslateX(650);
-		blinky.setTranslateY(323);
-		xPos = createSprite().getCenterX();
-		yPos = createSprite().getCenterY();
-		
+		red = new Rectangle(12,12);
+		red.setTranslateX(650);
+		red.setTranslateY(323);
+		red.setFill(Color.RED);
+		xPos = createSprite().getX() + 6; // getX -> upper left corner + 6 = center of side of square
+		yPos = createSprite().getY() + 6; // getX -> upper left corner + 6 = center of side of square
+
 		xCoord.add(xPos);
 		yCoord.add(yPos);
-		
+
 	}
 
 	@Override
 	public void updatePosition(player p) {
-    	
-		dest_x = p.getX();
-		if (xPos < dest_x) {
-    		createSprite().setCenterX(createSprite().getCenterX() + speed);
-    		xPos += speed;
-    	} else if (xPos > dest_x) {
-    		createSprite().setCenterX(createSprite().getCenterX() - speed);
-    		xPos -= speed;
-    	}
 		
-		dest_y = p.getY();
+		moveX(p);
+		moveY(p);
 		
-        
-    	if (yPos < dest_y) {
-    		createSprite().setCenterY(createSprite().getCenterY() + speed);
-    		yPos += speed;
-    	} else if (yPos > dest_y) {
-    		createSprite().setCenterY(createSprite().getCenterY() - speed);
-    		yPos -= speed;
-    	}
 	}
-	
-	
-	
+
+
+
+	@Override
+	public Rectangle createSprite() {
+		return red;
+	}
+
+	public void moveX(player p) {
+		dest_x = p.getX();
+		if(!checkCollisions()) {
+			if (xPos < dest_x) {
+				createSprite().setX(createSprite().getX() + 6 + speed);
+				xPos += speed;
+			} else if (xPos > dest_x) {
+				createSprite().setX(createSprite().getX() + 6 - speed);
+				xPos -= speed;
+			}
+		}
+	}
+
+	public void moveY(player p) {
+		dest_y = p.getY();
+		if(!checkCollisions()) {
+			if (yPos < dest_y) {
+				createSprite().setY(createSprite().getY() + 6 + speed);
+				yPos += speed;
+			} else if (yPos > dest_y) {
+				createSprite().setY(createSprite().getY() + 6 - speed);
+				yPos -= speed;
+			}
+		}
+	}
+
+
 	@Override
 	public double getX() {
-		return 0;
+		return xPos;
 	}
 
 	@Override
 	public double getY() {
-		return 0;
+		return yPos;
 	}
 
 	@Override
 	public boolean checkSides() {
+		for(Node n: board.addSides().getChildren()) {
+			if(collide(n)) {
+				return true;
+			}//end of if
+		}//end of for
 		return false;
 	}
 
 	@Override
 	public boolean checkCollisions() {
+		for(Node n : board.addBoard().getChildren()) {
+			if(collide(n)) {
+				return true;
+			}
+		}	
 		return false;
 	}
 
 	@Override
 	public boolean collide(Node other) {
-		return false;
-	}
-
-	@Override
-	public Circle createSprite() {
-		// TODO Auto-generated method stub		
-		return blinky;
+		return (createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
 	}
 
 	@Override
@@ -95,7 +118,5 @@ public class red_Blinky implements ghost {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
 
 }
