@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class blue_Inky implements Ghost {
+public class blue_Inky implements ghost {
 
 	private static double xPos;
 	private static double yPos;

@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.*;
 
-public class orange_Clyde implements Ghost {
+public class orange_Clyde implements ghost {
 
 	private static double xPos;
 	private static double yPos;

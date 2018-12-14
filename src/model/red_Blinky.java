@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 
-public class red_Blinky implements Ghost {
+public class red_Blinky implements ghost {
 
 	private static double xPos;
 	private static double yPos;

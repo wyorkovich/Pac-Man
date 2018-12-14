@@ -6,7 +6,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.*;
 import javafx.scene.shape.Circle;
 
-public class pink_Pinky implements Ghost {
+public class pink_Pinky implements ghost {
 	
 	private static double xPos;
 	private static double yPos;
