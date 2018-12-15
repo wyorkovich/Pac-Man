@@ -12,8 +12,10 @@ public class pellet {
 	private Circle pellet;
 	private int count = 0;
 	private int space = 20;
+	private Group root = new Group();
+	
 	public pellet() {
-			
+		addPellets();
 	}
 	
 	public int reward() {
@@ -28,10 +30,15 @@ public class pellet {
 		return count;
 	}
 	
+	public void removePellet() {
+		count--;
+	}
+	
+	public Group getPelletGroup() {
+		return root;
+	}
+	
 	public Group addPellets() {
-		
-		Group root = new Group();
-		
 		
 		//horizontal stretch left of pacman
 		int startingX = 530;
@@ -43,6 +50,7 @@ public class pellet {
 			root.getChildren().add(px);
 			startingX += space;
 			count++;
+			System.out.println(px.getBoundsInParent());
 		}
 		
 		//horizontal stretch right of pacman

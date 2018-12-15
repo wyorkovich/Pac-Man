@@ -14,7 +14,7 @@ public highScore(int newScore, String newName)
 	score = newScore;
 	
 	}
-public int getScore()
+public  int getScore()
 {
 	return score;
 }

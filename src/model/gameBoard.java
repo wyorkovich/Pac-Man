@@ -13,16 +13,19 @@ public class gameBoard {
 	private static Color border = Color.MIDNIGHTBLUE;
 	private static int sideLength = 220;
 	private static int topLength = 500;
+	Group root = new Group();
 		
 	public gameBoard() {
-		
+		addBoard();
+	}
+	
+	public Group getBoardGroup() {
+		return root;
 	}
 	
 	//returns a group with every part of the maze
 	public Group addBoard() {
 	
-		Group root = new Group();
-		
 		Rectangle borderLeft = new Rectangle(25, 25, 25, sideLength);
 		borderLeft.setFill(border);
 		borderLeft.setX(400);

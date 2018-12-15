@@ -18,6 +18,7 @@ public class ActionHandlerPacman implements EventHandler{
 	
 	public void move(KeyEvent e, player p) {
 		p.move(e);
+//		p.getScore();
 	}
 	
 }

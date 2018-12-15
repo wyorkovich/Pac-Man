@@ -14,10 +14,13 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import model.cyan_Inky;
 import model.gameBoard;
@@ -37,37 +40,37 @@ public class GameScreen extends Application{
 	private static gameBoard board = new gameBoard();
 	private static player pacman = new player();
 	private static pauseWindow pause = new pauseWindow();
-	private static pellet food = new pellet();
+	private static pellet food;
 	private static winWindow win = new winWindow();
+	private static HBox bottomBox;
+	private static Text scoreText;
+
 	private static red_Blinky blinky = new red_Blinky();
 	private static cyan_Inky inky = new cyan_Inky();
 	private static orange_Clyde clyde = new orange_Clyde();
 	private static pink_Pinky pinky = new pink_Pinky();
 	private static ActionHandlerPacman pHandle = new ActionHandlerPacman();
 	Group root = new Group();
-	Group pellets = food.addPellets();
-	private static int pelletCount = 275;
+	
 	//The Start method sets up the scene and adds in the game board
 	@Override
 	public void start(Stage screen) throws Exception {
 		
-		//BorderPane root = new BorderPane();
-		
-		
 		VBox centerBox = addCenterBox();
-		//root.setCenter(centerBox);
+		bottomBox = addBottomBox();
 		centerBox.setStyle("-fx-background-color: BLACK");
-		//root.setBottom(label);
-
+		food = pacman.getFood();
+		
 		//adds all images and characters into the scene
-		root.getChildren().add(board.addBoard());
-		root.getChildren().add(board.addSides());
-		root.getChildren().add(pellets);
+		root.getChildren().add(board.getBoardGroup());
+		root.getChildren().add(food.getPelletGroup());
 		root.getChildren().add(pacman.createSprite());
 		root.getChildren().add(blinky.createSprite());
 		root.getChildren().add(inky.createSprite());
 		root.getChildren().add(clyde.createSprite());
 		root.getChildren().add(pinky.createSprite());
+		root.getChildren().add(bottomBox);
+
 		
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
@@ -79,14 +82,20 @@ public class GameScreen extends Application{
 				//Can i make this more MVC compliant?
 				pHandle.move(e,pacman);
 				blinky.updatePosition(pacman);
+
 				inky.updatePosition(pacman);
 				clyde.updatePosition(pacman);
 				pinky.updatePosition(pacman);
-				root.getChildren().remove(pellets);
-				pellets = eatFood();
-				root.getChildren().add(pellets);
+				root.getChildren().remove(food.getPelletGroup());
+				root.getChildren().add(food.getPelletGroup());
+				root.getChildren().remove(food.getPelletGroup());
+				scoreText.setText("Score: " + updateScore());
+				root.getChildren().add(food.getPelletGroup());
+				if(food.getPelletCount() == 0) {
+					win.getWindow().show();
+				}
 			}//end of else
-			});
+		});
 		
 		window.setTitle(TITLE);
 		window.setScene(scene);
@@ -94,31 +103,6 @@ public class GameScreen extends Application{
 		window.show();
 		
 	}
-	
-	public Group eatFood() {
-		System.out.println(pelletCount);
-		Stage stage = new Stage();
-		if(pelletCount == 0) {
-			try {
-				win.start(stage);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		for(Node n: pellets.getChildren()) {
-			if(collide(n)) {
-				n.setTranslateX(2000);
-				pelletCount--;
-				}
-		}
-		return pellets;
-	}
-	
-	public boolean collide(Node other) {			
-		return (pacman.createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
-	}//end of collide
 	
 	public void close() {
 		window.close();
@@ -130,5 +114,33 @@ public class GameScreen extends Application{
 		box.setAlignment(Pos.CENTER);
 		return box;
 	}
+
+	private HBox addBottomBox() { // For scorekeeping
+		HBox box = new HBox();		
+		ObservableList<Node> list = box.getChildren();
+		
+		Rectangle rect = new Rectangle(525, 50);
+		rect.setStroke(Color.RED);
+		rect.setStrokeWidth(2);
+		rect.setTranslateX(400);
+		rect.setTranslateY(675);
+		
+		int score = pacman.getScore();
+		
+		scoreText = new Text("Score: " + score);
+		scoreText.setTranslateY(675);
+		scoreText.setTranslateX(-100);
+		scoreText.setFont(Font.font("Impact", 20));
+		scoreText.setFill(Color.WHITE);
+		
+		list.add(rect);
+		list.add(scoreText);
+
+		return box;
+	}
 	
+	public int updateScore() {
+		return pacman.getScore();
+	}
+
 }

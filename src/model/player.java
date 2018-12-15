@@ -26,6 +26,7 @@ public class player implements gameSprite{
 	private Circle pacman = new Circle(8,8,8);
 	private static gameBoard board = new gameBoard();
 	private static pellet food = new pellet();
+	private Score score = new Score();
 	private static double xPos;
 	private static double yPos;
 	private int moveSpeed = 4;
@@ -71,8 +72,9 @@ public class player implements gameSprite{
 
 		switch (e.getCode()) {
 		case DOWN:
-
-			checkFood();
+			if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 			if(!checkCollisions()) {
 				yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -98,8 +100,9 @@ public class player implements gameSprite{
 
 			break;
 	    case UP:
-	    	
-	    	checkFood();
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(!checkCollisions()) {
 	    		yPos = createSprite().getCenterY();
 				xCoord.add(xPos);
@@ -125,7 +128,9 @@ public class player implements gameSprite{
 	    	
 	    	break;
 	    case LEFT:
-	    	checkFood();
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(checkSides()) {
 	    		
 	    		xPos += 375;
@@ -160,7 +165,9 @@ public class player implements gameSprite{
 	    	
 	    	break;
 	    case RIGHT:
-	    	checkFood();
+	    	if(checkFood()) {
+	    		score.update(food.getPelletCount());
+	    	}
 	    	if(checkSides()) {
 	    		xPos -= 375;
 				xCoord.add(xPos);
@@ -196,7 +203,7 @@ public class player implements gameSprite{
 	//Checks to see if pacman intersects with the side tunnels
 	@Override
 	public boolean checkSides() {
-		for(Node n: board.addSides().getChildren()) {
+		for(Node n: board.addSides().getChildren()) { //should be board.getBoardGroup().getChildren(), but bugs occur. Not sure why.
 			if(collide(n)) {
 				return true;
 			}//end of if
@@ -217,46 +224,27 @@ public class player implements gameSprite{
 
 	//checks to see if any shape collides with pacman
 	@Override
-	public boolean collide(Node other) {			
+	public boolean collide(Node other) {
 		return (createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
 	}//end of collide
 
 	public boolean checkFood() {
-		for(Node n: food.addPellets().getChildren()) {
+		for(Node n: food.getPelletGroup().getChildren()) {
 			if(collide(n)) {
 				n.setTranslateX(2000);
+				food.removePellet();
 				return true;
 			}
 		}
 		return false;
 	}
-
-	//These methods will most likely be deleted soon (I was testing some things)
-//	public int getXArraySize() {
-//		return xCoord.size();
-//	}
-//	
-//	public int getYArraySize() {
-//		return yCoord.size();
-//	}
-//	
-//	public double indexX(int i) {
-//		return xCoord.get(i);
-//	}
-//	
-//	public double indexY(int i) {
-//		return yCoord.get(i);
-//	}
-//	
-//	public int getSpeed() {
-//		return moveSpeed;
-//	}
-//	public void addX(double x) {
-//		xCoord.add(x);
-//	}
-//	
-//	public void addY(double y) {
-//		yCoord.add(y);
-//	}
+	
+	public int getScore() {
+		return score.getScore();
+	}
+	
+	public pellet getFood() {
+		return food;
+	}
 	
 }//end of class
