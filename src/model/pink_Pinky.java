@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.*;
-import javafx.scene.shape.Circle;
-
 
 public class pink_Pinky implements ghost {
 	
@@ -22,7 +20,7 @@ public class pink_Pinky implements ghost {
 	public pink_Pinky() {
 		pink = new Rectangle(12,12);
 		pink.setTranslateX(658);
-		pink.setTranslateY(490);
+		pink.setTranslateY(330);
 		pink.setFill(Color.PINK);
 		xPos = createSprite().getX() + 6; // getX -> upper left corner + 4 = center of side of square
 		yPos = createSprite().getY() + 6; // getX -> upper left corner + 4 = center of side of square
@@ -103,9 +101,4 @@ public class pink_Pinky implements ghost {
 		return createSprite().getBoundsInParent().intersects(other.getBoundsInParent());
 	}
 
-	@Override
-	public boolean checkState() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }

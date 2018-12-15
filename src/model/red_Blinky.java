@@ -36,7 +36,6 @@ public class red_Blinky implements ghost {
 
 	}
 
-	@Override
 	public void updatePosition(player p) {
 		
 		moveX(p);
@@ -111,12 +110,6 @@ public class red_Blinky implements ghost {
 	@Override
 	public boolean collide(Node other) {
 		return (createSprite().getBoundsInParent().intersects(other.getBoundsInParent()));
-	}
-
-	@Override
-	public boolean checkState() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

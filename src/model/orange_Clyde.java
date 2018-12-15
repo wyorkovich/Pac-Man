@@ -20,7 +20,7 @@ public class orange_Clyde implements ghost {
 	public orange_Clyde() {
 		orange = new Rectangle(12,12);
 		orange.setTranslateX(666);
-		orange.setTranslateY(490);
+		orange.setTranslateY(320);
 		orange.setFill(Color.ORANGE);
 		xPos = createSprite().getX() + 6; // getX -> upper left corner + 4 = center of side of square
 		yPos = createSprite().getY() + 6; // getX -> upper left corner + 4 = center of side of square
@@ -98,12 +98,6 @@ public class orange_Clyde implements ghost {
 	@Override
 	public boolean collide(Node other) {
 		return createSprite().getBoundsInParent().intersects(other.getBoundsInParent());
-	}
-
-	@Override
-	public boolean checkState() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }

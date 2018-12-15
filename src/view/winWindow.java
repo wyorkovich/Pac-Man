@@ -45,13 +45,21 @@ public class winWindow extends Application {
 		VBox box = new VBox();
 		box.setSpacing(25);
 		ObservableList<Node> list = box.getChildren();
+
 		Text text = new Text ("YOU WIN");
+
+		text.setScaleX(10);
+		text.setScaleY(10);
+		text.setScaleZ(10);
+		text.setFill(Color.RED);
 		
 		 Text highScores = new Text(leaderBoard.printHighScore());
 	        highScores.setFill(Color.YELLOW);
 	        highScores.setTextAlignment(TextAlignment.CENTER);
 		
 		list.addAll(text, highScores);
+
+
 		box.setAlignment(Pos.CENTER);
 		return box;
 	}

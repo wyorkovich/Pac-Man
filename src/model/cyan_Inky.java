@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class blue_Inky implements ghost {
+public class cyan_Inky implements ghost {
 
 	private static double xPos;
 	private static double yPos;
@@ -16,15 +16,15 @@ public class blue_Inky implements ghost {
 	private static gameBoard board = new gameBoard();
 	private ArrayList<Double> xCoord = new ArrayList<Double>();
 	private ArrayList<Double> yCoord = new ArrayList<Double>();
-	
-	public blue_Inky() {
+
+	public cyan_Inky() {
 		blue = new Rectangle(12,12);
 		blue.setTranslateX(670);
 		blue.setTranslateY(323);
 		blue.setFill(Color.CYAN);
 		xPos = createSprite().getX() + 6;
 		yPos = createSprite().getY() + 6;
-		
+
 		xCoord.add(xPos);
 		yCoord.add(yPos);
 	}
@@ -38,7 +38,7 @@ public class blue_Inky implements ghost {
 	public double getY() {
 		return yPos;
 	}
-	
+
 	@Override
 	public Rectangle createSprite() {
 		return blue;
@@ -100,12 +100,6 @@ public class blue_Inky implements ghost {
 	@Override
 	public boolean collide(Node other) {
 		return createSprite().getBoundsInParent().intersects(other.getBoundsInParent());
-	}
-
-	@Override
-	public boolean checkState() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 }
