@@ -1,6 +1,9 @@
 
 package view;
 
+import java.io.IOException;
+import java.util.Dictionary;
+
 import Database.Database;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -34,6 +37,8 @@ public class Leaderboard extends Application {
 			
 			Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 			
+			
+			
 			window.setTitle(TITLE);
 			window.setScene(scene);
 			window.show();
@@ -45,7 +50,7 @@ public class Leaderboard extends Application {
 		}
 		
 		//Sets up a centerbox to load into the screen
-		private VBox addCenterBox() {  //test comment
+		private VBox addCenterBox()  {  //test comment
 			VBox box = new VBox();
 			box.setSpacing(25);
 			

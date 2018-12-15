@@ -1,5 +1,7 @@
 package view;
 
+import java.io.IOException;
+
 import Database.Database;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -13,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import model.Score;
 
 public class winWindow extends Application {
 
@@ -21,6 +24,7 @@ public class winWindow extends Application {
 	private static int SCENE_HEIGHT = 500;
 	private static Stage window = new Stage();
 	Database leaderBoard = new Database();
+	Score score = new Score();
 	
 	
 	@Override
@@ -34,7 +38,7 @@ public class winWindow extends Application {
 		
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
-		
+		//leaderBoard.addHighScore(highScore newScore);
 		window.setTitle(TITLE);
 		window.setScene(scene);
 		window.show();
