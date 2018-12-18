@@ -69,6 +69,17 @@ public class winWindow extends Application {
 	}
 	
 	public Stage getWindow() {
+		BorderPane root = new BorderPane();
+		VBox centerBox = addCenterBox();
+		root.setCenter(centerBox);
+		centerBox.setStyle("-fx-background-color: BLACK");
+		
+		
+		
+		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
+		
+		window.setTitle(TITLE);
+		window.setScene(scene);
 		return window;
 	}
 	

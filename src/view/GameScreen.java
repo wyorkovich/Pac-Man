@@ -71,7 +71,7 @@ public class GameScreen extends Application{
 		root.getChildren().add(pinky.createSprite());
 		root.getChildren().add(bottomBox);
 
-		
+		win.getWindow().show();
 		//listens for key presses
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		scene.setOnKeyPressed(e -> {
