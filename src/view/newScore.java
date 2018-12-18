@@ -1,8 +1,11 @@
 package view;
 
+import java.util.Optional;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -11,29 +14,34 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 
+
+
+
 public class newScore extends Application{
 
 	private static String TITLE = "Leaderboard";
 	private static int SCENE_WIDTH = 600;
 	private static int SCENE_HEIGHT = 500;
-	private static Stage window = new Stage();
+	//public Stage window = new Stage();
+	Optional<String> result;
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		BorderPane root = new BorderPane();
-		VBox centerBox = addCenterBox();
-		root.setCenter(centerBox);
-		centerBox.setStyle("-fx-background-color: #0000FF");
-		
-		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
 		
 		
-		
-		window.setTitle(TITLE);
-		window.setScene(scene);
-		window.show();
-		
-	}
+	}//end of start
+	
+public String getName()
+{
+
+	TextInputDialog dialog = new TextInputDialog("walter");
+	dialog.setTitle("New High Score!");
+	dialog.setHeaderText("You've reached the leaderboards!");
+	dialog.setContentText("Please enter your name:");
+	
+    result = dialog.showAndWait();
+	return result.get();
+}
 	
 	private VBox addCenterBox()  {  //test comment
 		VBox box = new VBox();

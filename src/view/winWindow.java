@@ -34,18 +34,18 @@ public class winWindow extends Application {
 		VBox centerBox = addCenterBox();
 		root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: CORNFLOWERBLUE");
-		
+		//leaderBoard.addHighScore(highScore newScore("Jimmy"));
 		
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
-		//leaderBoard.addHighScore(highScore newScore);
+		
 		window.setTitle(TITLE);
 		window.setScene(scene);
 		window.show();
 		
 	}
 
-	private VBox addCenterBox() {  //test comment
+	public VBox addCenterBox() {  //test comment
 		VBox box = new VBox();
 		box.setSpacing(25);
 		ObservableList<Node> list = box.getChildren();
@@ -57,11 +57,11 @@ public class winWindow extends Application {
 		text.setScaleZ(10);
 		text.setFill(Color.RED);
 		
-		 Text highScores = new Text(leaderBoard.printHighScore());
-	        highScores.setFill(Color.YELLOW);
-	        highScores.setTextAlignment(TextAlignment.CENTER);
+		// Text highScores = new Text(leaderBoard.printHighScore());
+	       // highScores.setFill(Color.YELLOW);
+	       // highScores.setTextAlignment(TextAlignment.CENTER);
 		
-		list.addAll(text, highScores);
+		//list.addAll(text, highScores);
 
 
 		box.setAlignment(Pos.CENTER);

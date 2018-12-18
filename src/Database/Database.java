@@ -17,11 +17,14 @@ import com.google.gson.stream.JsonWriter;
 
 
 import javafx.scene.text.Text;
+import model.Score;
 import model.pellet;
 import model.player;
+import view.newScore;
 
 public class Database {
 
+	newScore scoreSceen = new newScore();
 	player p = new player();
 	int MAX_SIZE =10;
 	
@@ -80,10 +83,30 @@ public String printHighScore ()
 //this method will parse the leaderboard and find a place for the new high score
 public void addHighScore (highScore newScore) 
 {
+	
 	for(int i=0; i<scores.size(); i++)
 	{
+		highScore tester=(highScore) scores.get(i);
+		if(newScore.getScore()> tester.getScore())
 			scores.put(i,newScore);
 	}
+}
+public void isHighScore (Score newScore)//this method tests to see if the score is greater than the scores on the leaderboard
+{
+	boolean isHighScore = false;
+	for(int i=0; i<scores.size(); i++)
+	{
+		highScore tester=(highScore) scores.get(i);
+		if(newScore.getScore() > tester.getScore())
+		{
+			String userName=getUserName();
+			highScore scoreToSend = new highScore(newScore.getScore(), userName);
+			addHighScore(scoreToSend);
+		}	
+		
+			
+	}
+	
 }
 public String formatHashString(String hashString)
 {
@@ -99,7 +122,17 @@ public String formatHashString(String hashString)
 	newString=newString.replace(',', ' ');
 	newString=newString.replace('{' , ' ');
 	newString=newString.replace('}', ' ');
+	newString=newString.replace('=', ':');
 	return newString;
 	
 }//end of formatHashString
+
+
+public String getUserName()
+{
+	String output ="";
+	output = scoreSceen.getName();
+	
+		return output;
+}
 }//end of class
