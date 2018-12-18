@@ -36,7 +36,6 @@ public class Database {
 	//this class creates a database object, and puts the default starting scores into the json leadboard file
 	public Database() {
 		
-		
 		scores.put(0,new highScore(500, "Brock Sampson"));
 		scores.put(1,new highScore(750, "Homer Simpson"));
 		scores.put(2,new highScore(1000, "Pac-Man"));
@@ -62,11 +61,11 @@ public class Database {
 			e.printStackTrace();
 		}
 	}
-
+		 
 	//this class pulls the array from the json leaderboard, saves it and returns it in a hashtable
 public Hashtable pullHighScore () 
 {
-	String scores =  toFile.toString(); 
+	//String scores =  toFile.toString(); 
 	
 	output =new Gson().fromJson(toFile, Hashtable.class);
 	return output;

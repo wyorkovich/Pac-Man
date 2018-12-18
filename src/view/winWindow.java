@@ -34,7 +34,7 @@ public class winWindow extends Application {
 		VBox centerBox = addCenterBox();
 		root.setCenter(centerBox);
 		centerBox.setStyle("-fx-background-color: CORNFLOWERBLUE");
-		//leaderBoard.addHighScore(highScore newScore("Jimmy"));
+		
 		
 		
 		Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT, Color.BLACK);
@@ -56,12 +56,12 @@ public class winWindow extends Application {
 		text.setScaleY(10);
 		text.setScaleZ(10);
 		text.setFill(Color.RED);
+		leaderBoard.isHighScore(score);
+		Text highScores = new Text(leaderBoard.printHighScore());
+	     highScores.setFill(Color.YELLOW);
+	      highScores.setTextAlignment(TextAlignment.CENTER);
 		
-		// Text highScores = new Text(leaderBoard.printHighScore());
-	       // highScores.setFill(Color.YELLOW);
-	       // highScores.setTextAlignment(TextAlignment.CENTER);
-		
-		//list.addAll(text, highScores);
+		list.addAll(text, highScores);
 
 
 		box.setAlignment(Pos.CENTER);
